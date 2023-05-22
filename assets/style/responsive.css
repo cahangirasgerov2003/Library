@@ -1,0 +1,8 @@
+@media only screen and (max-width: 992px) {
+  .textWelcome {
+    font-size: 40px;
+  }
+  .adminContainer {
+    width: 80%;
+  }
+}

@@ -1,3 +1,14 @@
+/* Animation */
+@keyframes adminButtonAnime {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(0.98, 0.98);
+  }
+}
+
+/* For general use */
 * {
   box-sizing: border-box;
 }
@@ -7,6 +18,58 @@ html {
 .adminMainbgColor {
   background-color: var(--adminMainbgColor);
 }
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+.fontMontSerrat {
+  font-family: var(--montSerrat);
+}
+
+/*For special use*/
 .editLogo {
   padding: 74.96px 0 0 35px;
+  margin-bottom: 160px;
+}
+.welcomeAdmin {
+  margin: 69px 0 17.78px 0;
+}
+.textWelcome {
+  font-size: 44px;
+}
+.inputContainer div input {
+  border: 1px solid #cecece;
+  width: 80%;
+  padding: 18px 0 18px 50px;
+}
+.inputContainer div:first-child input {
+  margin-bottom: 34px;
+}
+.inputContainer div:last-child input {
+  margin-bottom: 70px;
+}
+.signIn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+.signIn button {
+  background-color: #e16a00;
+  width: 80%;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  padding: 14px 0 14px 0;
+}
+.signIn button:hover {
+  background-color: #fd7600;
+  animation: adminButtonAnime 2s linear 0s infinite alternate;
+}
+.adminContainer {
+  margin-bottom: 280px;
+  width: 50%;
+}
+.join-success,
+.join-error {
+  width: 80%;
 }

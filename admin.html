@@ -5,18 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="shortcut icon"
+      href="./assets/image/icon/adminLogo.jpg"
+      type="image/x-icon"
+    />
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="/assets/style/global.css" />
     <title>Admin Page</title>
   </head>
   <body>
-    <div class="adminMainbgColor w-100 min-vh-100">
+    <!-- Admin Login -->
+    <div class="adminMainbgColor w-100 min-vh-100" style="display: none">
       <div class="editLogo">
-        <img src="./assets/image/icon/logo.svg" />
+        <img src="./assets/image/icon/logo.svg" alt="logo" />
       </div>
       <!-- Modal -->
       <div class="flex-center">
@@ -39,7 +49,7 @@
           <div
             class="alert alert-danger join-error mx-auto"
             role="alert"
-            style="display: block"
+            style="display: none"
           >
             <h4>Error</h4>
             <p>Please check form!</p>
@@ -53,6 +63,77 @@
             <p>Welcome admin panel &#9996;</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="d-flex">
+      <!-- Admin Panel Left -->
+      <div class="adminMainbgColor min-vh-100 panelLeft d-inline-block">
+        <div class="adminPanelLogo">
+          <img src="./assets/image/icon/logo.svg" alt="logo" />
+        </div>
+        <div class="menuContainer">
+          <ul>
+            <li>
+              <img src="./assets/image/icon/book.svg" alt="book" />
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <img src="./assets/image/icon/book.svg" alt="book" />
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <img src="./assets/image/icon/book.svg" alt="book" />
+              <a href="#joinUS">Join us</a>
+            </li>
+            <li>
+              <img src="./assets/image/icon/book.svg" alt="book" />
+              <a href="#contact">Contact</a>
+            </li>
+            <li>
+              <img src="./assets/image/icon/book.svg" alt="book" />
+              <a href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Admin Panel Right -->
+      <div class="w-100 panelRight">
+        <div class="adminTitleLogo">
+          <img src="./assets/image/icon/adminPanel.svg" alt="admin" />
+        </div>
+
+        <!-- Add Books -->
+        <div class="addBooks">
+          <div class="textAddBook">
+            <h2>Add book</h2>
+          </div>
+          <div>
+            <p class="textSearchBook">Search book</p>
+            <div class="d-flex mb-2">
+              <input class="searchInput" type="text" placeholder="Dan Brown" />
+              <button
+                type="button"
+                class="search d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-brands fa-searchengin fa-beat"></i>
+              </button>
+            </div>
+            <div class="searchTips">
+              <div class="d-flex">
+                <img src="./assets/image/icon/clock.svg" alt="clock" />
+                <p class="d-flex align-items-end">Dan Brown Davinc</p>
+              </div>
+              <div class="d-flex">
+                <img src="./assets/image/icon/clock.svg" alt="clock" />
+                <p class="d-flex align-items-end">Dan Brown Angel</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--  -->
       </div>
     </div>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

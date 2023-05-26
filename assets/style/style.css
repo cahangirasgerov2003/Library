@@ -25,7 +25,13 @@ html {
 .fontMontSerrat {
   font-family: var(--montSerrat);
 }
-
+li {
+  list-style: none;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
 /*For special use*/
 .editLogo {
   padding: 74.96px 0 0 35px;
@@ -72,4 +78,75 @@ html {
 .join-success,
 .join-error {
   width: 80%;
+}
+.adminPanelLogo {
+  padding: 74px 37px 54px 35px;
+}
+.menuContainer ul li {
+  margin-bottom: 34px;
+}
+.menuContainer ul li img {
+  margin-right: 13px;
+}
+.menuContainer ul li a {
+  font-family: var(--montSerrat);
+  font-weight: 400;
+  color: #fff;
+}
+.adminTitleLogo {
+  display: flex;
+  justify-content: flex-end;
+  margin: 48px 58px 48px 0;
+}
+.panelRight {
+  padding-left: 32px;
+}
+.textAddBook {
+  font-family: var(--montSerrat);
+  font-weight: 600;
+  font-size: 30px;
+  color: #333333;
+  margin-bottom: 26px;
+}
+.textAddBook,
+.textSearchBook {
+  font-family: var(--montSerrat);
+  font-weight: 600;
+  font-size: 30px;
+  color: #333333;
+  margin-bottom: 26px;
+}
+.textSearchBook {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.searchInput {
+  padding: 9px 0 10px 33px;
+  border-radius: 34px;
+  border: 2px solid rgba(57, 31, 0, 0.48);
+  width: 30%;
+  margin-right: 7px;
+}
+.search {
+  width: 63px;
+  height: 40px;
+  border-radius: 34px;
+  background-color: #ff8b00;
+  border: none;
+}
+.searchTips {
+  width: 30%;
+  background-color: #f1f0f0;
+  border-radius: 35px;
+}
+.searchTips div img {
+  margin: 20px 24px 17.25px 36px;
+}
+.searchTips div p {
+  font-family: "Preahvihear", sans-serif;
+  font-size: 14px;
+  color: #bcbcbc;
+}
+.addBooks {
+  margin-bottom: 80px;
 }

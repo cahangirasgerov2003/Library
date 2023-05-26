@@ -8,6 +8,33 @@
   }
 }
 
+@keyframes adminAddButtonAnime {
+  from {
+    transform: scale(1, 1);
+    background-color: var(--inputColor);
+  }
+  to {
+    transform: scale(0.98, 0.98);
+    background-color: #683202;
+  }
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 4px 4px 10px 10px #e5e5e5;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--adminMainbgColor);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background-color: #5c0414;
+}
+
 /* For general use */
 * {
   box-sizing: border-box;
@@ -33,6 +60,12 @@ a:hover {
   text-decoration: none;
 }
 /*For special use*/
+.stickyContainer {
+  height: 710px;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
 .editLogo {
   padding: 74.96px 0 0 35px;
   margin-bottom: 160px;
@@ -108,12 +141,15 @@ a:hover {
   color: #333333;
   margin-bottom: 26px;
 }
-.textAddBook,
-.textSearchBook {
+.textAddBook h2,
+.textSearchBook,
+.textAboutStore h2 {
   font-family: var(--montSerrat);
   font-weight: 600;
   font-size: 30px;
   color: #333333;
+}
+.textAddBook {
   margin-bottom: 26px;
 }
 .textSearchBook {
@@ -131,7 +167,7 @@ a:hover {
   width: 63px;
   height: 40px;
   border-radius: 34px;
-  background-color: #ff8b00;
+  background-color: var(--inputColor);
   border: none;
 }
 .searchTips {
@@ -149,4 +185,67 @@ a:hover {
 }
 .addBooks {
   margin-bottom: 80px;
+}
+.bookFormContainer,
+.aboutStoreContainer {
+  margin-bottom: 160px;
+  font-family: var(--fontRoboto);
+  font-weight: 400;
+  width: 88%;
+}
+.textBookForm h2 {
+  font-family: var(--montSerrat);
+  font-size: 18px;
+  color: #333333;
+}
+.formContainer,
+.storeContainer {
+  padding: 16px 30px 29px 30px;
+}
+.formContainer label,
+.storeContainer {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #030102;
+}
+.formContainer input,
+.formContainer textarea,
+.storeContainer input,
+.storeContainer textarea {
+  font-size: 16px;
+  padding: 10.5px 12px 10.5px 12px;
+  border: 1px solid #e2e6ee;
+  box-shadow: 0px 4px 18px rgba(158, 168, 189, 0.31);
+  border-radius: 10px;
+  color: #030102;
+  margin-bottom: 24px;
+  width: 100%;
+}
+.formContainer textarea,
+.storeContainer textarea {
+  font-family: var(--montSerrat);
+  font-weight: 500;
+}
+.addButton,
+.aboutStoreButton {
+  background-color: var(--inputColor);
+  color: #fff;
+  font-size: 14px;
+}
+.addButton:hover,
+.aboutStoreButton:hover {
+  color: #fff;
+  animation: adminAddButtonAnime 1s linear 0s infinite alternate;
+}
+.aboutStoreContainer {
+  margin-bottom: 136px;
+}
+.joinUsContainer {
+  margin-bottom: 154px;
+  width: 50%;
+}
+.textJoinUs {
+  margin-bottom: 5px;
+  font: 600 30px var(--montSerrat);
+  color: #333333;
 }

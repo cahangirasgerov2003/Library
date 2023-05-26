@@ -1,7 +1,10 @@
 :root {
   /* BG Colors */
   --adminMainbgColor: #720418;
+  --inputColor: #ff8b00;
 
   /* Fonts */
   --montSerrat: "Montserrat", sans-serif;
+  --fontRobota: "Roboto", sans-serif;
+  --fontPreahvihear: "Preahvihear", sans-serif;
 }

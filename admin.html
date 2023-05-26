@@ -86,7 +86,7 @@
               </li>
               <li>
                 <img src="./assets/image/icon/book.svg" alt="book" />
-                <a href="#joinUS">Join us</a>
+                <a href="#joinUs">Join us</a>
               </li>
               <li>
                 <img src="./assets/image/icon/book.svg" alt="book" />
@@ -114,7 +114,12 @@
           <div>
             <p class="textSearchBook">Search book</p>
             <div class="d-flex mb-2">
-              <input class="searchInput" type="text" placeholder="Dan Brown" />
+              <input
+                id="home"
+                class="searchInput"
+                type="text"
+                placeholder="Dan Brown"
+              />
               <button
                 type="button"
                 class="search d-flex justify-content-center align-items-center"
@@ -199,10 +204,10 @@
           <div class="storeContainer">
             <form>
               <div>
-                <label for="titleStore">Title</label>
+                <label for="about">Title</label>
                 <input
+                  id="about"
                   class="d-block"
-                  id="titleStore"
                   type="text"
                   placeholder="About Store"
                 />
@@ -231,10 +236,10 @@
           </div>
         </div>
 
-        <!-- Join As -->
+        <!-- Join Us -->
         <div class="joinUsContainer">
           <div class="textJoinUs">
-            <h2>Join Us</h2>
+            <h2 id="joinUs">Join Us</h2>
           </div>
           <table
             class="table tableContainer text-center"
@@ -259,6 +264,45 @@
                 <th scope="row">2</th>
                 <td>Savannah Howard</td>
                 <td>jeff.brown@example.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="contactUsContainer">
+          <div class="textContactUs">
+            <h2 id="contact">Contact Us</h2>
+          </div>
+          <table
+            class="table text-center d-inline-block"
+            style="font: 400 14px 'Nunito Sans', sans-serif; color: #05111a"
+          >
+            <thead
+              style="background-color: var(--adminMainbgColor); color: white"
+            >
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Email Adress</th>
+                <th scope="col">Phone Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Audrey Mckinney</td>
+                <td>1473 Ranchview Dr undefined San Jose</td>
+                <td>lisa.watson@example.com</td>
+                <td>(209) 555-0104</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Savannah Howard</td>
+                <td>8445 Railroad St undefined Tampa</td>
+                <td>jeff.brown@example.com</td>
+                <td>(704) 555-0127</td>
               </tr>
             </tbody>
           </table>

@@ -244,8 +244,19 @@ a:hover {
   margin-bottom: 154px;
   width: 50%;
 }
-.textJoinUs {
+.textJoinUs,
+.textContactUs {
   margin-bottom: 5px;
   font: 600 30px var(--montSerrat);
   color: #333333;
+}
+.textContactUs {
+  margin-bottom: 10px;
+}
+.contactUsContainer {
+  margin-bottom: 200px;
+}
+.contactUsContainer table td,
+.contactUsContainer table th {
+  padding: 12px 20px 12px 20px;
 }

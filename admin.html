@@ -67,9 +67,9 @@
     </div>
 
     <!-- Admin Panel -->
-    <div class="d-flex">
+    <div class="d-flex adminPanel">
       <!-- Admin Panel Left -->
-      <div class="min-vh-100 d-inline-block adminMainbgColor">
+      <div class="adminPanelLeft min-vh-100 d-inline-block adminMainbgColor">
         <div class="stickyContainer">
           <div class="adminPanelLogo">
             <img src="./assets/image/icon/logo.svg" alt="logo" />
@@ -102,6 +102,21 @@
       </div>
       <!-- Admin Panel Right -->
       <div class="w-100 panelRight">
+        <!-- Mobile Admin Title Logo -->
+        <div class="d-none responsiveLeftLogo">
+          <div>
+            <img
+              src="./assets/image/bookStoreLogo.jpg"
+              alt="Book logo"
+              height="80px"
+            />
+          </div>
+          <div>
+            <img src="./assets/image/icon/open_close.svg" alt="logo" />
+          </div>
+        </div>
+
+        <!-- Desctop Admin Title Logo -->
         <div class="adminTitleLogo">
           <img src="./assets/image/icon/adminPanel.svg" alt="admin" />
         </div>
@@ -113,7 +128,7 @@
           </div>
           <div>
             <p class="textSearchBook">Search book</p>
-            <div class="d-flex mb-2">
+            <div class="d-flex mb-2 align-items-center">
               <input
                 id="home"
                 class="searchInput"
@@ -242,7 +257,7 @@
             <h2 id="joinUs">Join Us</h2>
           </div>
           <table
-            class="table tableContainer text-center"
+            class="table text-center"
             style="font: 400 14px 'Nunito Sans', sans-serif; color: #05111a"
           >
             <thead

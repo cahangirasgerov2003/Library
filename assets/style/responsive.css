@@ -35,6 +35,9 @@
     align-items: center;
     padding: 11px 29px 40.21px 13px;
   }
+  .bookLogoContainer {
+    cursor: pointer;
+  }
   .textAddBook h2,
   .textAboutStore h2 {
     margin-bottom: 6px;
@@ -91,4 +94,19 @@
   .tableContainer table {
     font-size: 12px;
   }
+  .adminPanelLogo {
+    padding: 14.62px 27px 71.85px 11.51px;
+  }
+  .closeLogo {
+    padding: 28px 7px 0 0;
+  }
+  .adminPanelLogo img {
+    width: 177px;
+  }
+  .closeLogo img {
+    width: 25px;
+  }
+  /* .adminPanel {
+    background: rgba(36, 20, 0, 0.7);
+  } */
 }

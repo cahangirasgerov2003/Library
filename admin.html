@@ -256,71 +256,127 @@
           <div class="textJoinUs">
             <h2 id="joinUs">Join Us</h2>
           </div>
-          <table
-            class="table text-center"
-            style="font: 400 14px 'Nunito Sans', sans-serif; color: #05111a"
-          >
-            <thead
-              style="background-color: var(--adminMainbgColor); color: white"
-            >
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Full Name</th>
-                <th scope="col">Email Adress</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Audrey Mckinney</td>
-                <td>lisa.watson@example.com</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Savannah Howard</td>
-                <td>jeff.brown@example.com</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="tableContainer">
+            <table class="table text-center">
+              <thead
+                style="background-color: var(--adminMainbgColor); color: white"
+              >
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Email Adress</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Audrey Mckinney</td>
+                  <td>lisa.watson@example.com</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Savannah Howard</td>
+                  <td>jeff.brown@example.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- Contact Us -->
-        <div class="contactUsContainer">
+        <div id="contactUsContainerForDesctop" class="contactUsContainer">
           <div class="textContactUs">
             <h2 id="contact">Contact Us</h2>
           </div>
-          <table
-            class="table text-center d-inline-block"
-            style="font: 400 14px 'Nunito Sans', sans-serif; color: #05111a"
-          >
-            <thead
-              style="background-color: var(--adminMainbgColor); color: white"
-            >
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Full Name</th>
-                <th scope="col">Address</th>
-                <th scope="col">Email Adress</th>
-                <th scope="col">Phone Number</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Audrey Mckinney</td>
-                <td>1473 Ranchview Dr undefined San Jose</td>
-                <td>lisa.watson@example.com</td>
-                <td>(209) 555-0104</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Savannah Howard</td>
-                <td>8445 Railroad St undefined Tampa</td>
-                <td>jeff.brown@example.com</td>
-                <td>(704) 555-0127</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="contactUsTableContainer">
+            <table class="table text-center">
+              <thead
+                style="background-color: var(--adminMainbgColor); color: white"
+              >
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Email Adress</th>
+                  <th scope="col">Phone Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Audrey Mckinney</td>
+                  <td>1473 Ranchview Dr undefined San Jose</td>
+                  <td>lisa.watson@example.com</td>
+                  <td>(209) 555-0104</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Savannah Howard</td>
+                  <td>8445 Railroad St undefined Tampa</td>
+                  <td>jeff.brown@example.com</td>
+                  <td>(704) 555-0127</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Contact Us for mobile -->
+        <div id="contactUsContainerForMobile" class="joinUsContainer d-none">
+          <div class="textContactUs">
+            <h2 id="contactForMobile">Contact Us</h2>
+          </div>
+          <div class="contactUsTableContainer nameAdress">
+            <table class="table table-bordered text-center">
+              <thead
+                style="background-color: var(--adminMainbgColor); color: white"
+              >
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Adress</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Audrey Mckinney</td>
+                  <td>1473 Ranchview Dr undefined San Jose</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Savannah Howard</td>
+                  <td>8445 Railroad St undefined Tampa</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="contactUsTableContainer emailPhone">
+            <table class="table table-bordered text-center">
+              <thead
+                style="background-color: var(--adminMainbgColor); color: white"
+              >
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Email Adress</th>
+                  <th scope="col">Phone Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>lisa.watson@example.com</td>
+                  <td>(209) 555-0104</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>jeff.brown@example.com</td>
+                  <td>(704) 555-0127</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

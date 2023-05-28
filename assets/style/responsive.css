@@ -5,6 +5,18 @@
   .adminContainer {
     width: 80%;
   }
+  .adminPanelLogo img {
+    width: 200px;
+  }
+  #contactUsContainerForDesctop {
+    display: none;
+  }
+  #contactUsContainerForMobile {
+    display: block !important;
+  }
+  .nameAdress {
+    margin-bottom: 20px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -12,9 +24,6 @@
     display: none !important;
   }
   .adminTitleLogo {
-    display: none;
-  }
-  .contactUsContainer {
     display: none;
   }
   .searchTips div img {
@@ -68,10 +77,18 @@
     margin-bottom: 143px;
     width: 94%;
   }
+  .joinUsContainer {
+    margin-bottom: 180px;
+  }
   .textJoinUs,
   .textContactUs {
     margin-bottom: 25px;
-    font: 600 25px var(--montSerrat);
-    color: #333333;
+    font-size: 25px;
+  }
+  .tableContainer {
+    width: 94%;
+  }
+  .tableContainer table {
+    font-size: 12px;
   }
 }

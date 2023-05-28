@@ -236,7 +236,6 @@ a:hover {
 }
 .joinUsContainer {
   margin-bottom: 154px;
-  width: 50%;
 }
 .textJoinUs,
 .textContactUs {
@@ -244,13 +243,20 @@ a:hover {
   font: 600 30px var(--montSerrat);
   color: #333333;
 }
+.tableContainer table,
+.contactUsTableContainer table {
+  font: 400 14px "Nunito Sans", sans-serif;
+  color: #05111a;
+}
+.tableContainer {
+  width: 60%;
+}
 .textContactUs {
   margin-bottom: 10px;
 }
 .contactUsContainer {
   margin-bottom: 200px;
 }
-.contactUsContainer table td,
-.contactUsContainer table th {
-  padding: 12px 20px 12px 20px;
+.contactUsTableContainer {
+  width: 95%;
 }

@@ -232,14 +232,14 @@
                   maxlength="100"
                   placeholder="We work without holidays and weekends! Resident...We work without holidays and weekends! Resident...We work without holidays and weekends! Resident..."
                 ></textarea>
-                <span class="ml-1"> 0 / 100</span>
+                <span class="formDescriptionLetters ml-1"> 0 / 100</span>
                 <small class="form-text text-danger ml-1"></small>
               </div>
               <div>
                 <label for="bookType">Book Type</label>
                 <div class="dropdown d-inline-block ml-4">
                   <button
-                    class="btn btn-success dropdown-toggle"
+                    class="btn btn-success dropdown-toggle dropdownButton"
                     type="button"
                     data-toggle="dropdown"
                     aria-expanded="false"
@@ -248,10 +248,13 @@
                   </button>
                   <div class="dropdown-menu py-3 px-2 border-success">
                     <p class="mb-3">Add Type</p>
-                    <input type="text" class="py-2 px-3" />
+                    <input type="text" class="py-2 px-3 addType" />
+                    <small
+                      class="form-text text-danger ml-1 addTypeError"
+                    ></small>
                     <button
                       type="button"
-                      class="mt-4 btn btn-success btn-block"
+                      class="mt-4 btn btn-success btn-block addTypeButton"
                     >
                       Add Type
                     </button>
@@ -264,9 +267,9 @@
                   placeholder="Fantastic"
                 /> -->
                 <select class="form-control form-control-lg" id="bookType">
-                  <option>Fantastic</option>
+                  <!-- <option>Fantastic</option>
                   <option>Besteller</option>
-                  <option>Baby</option>
+                  <option>Baby</option> -->
                 </select>
                 <small class="form-text text-danger ml-1"></small>
               </div>
@@ -307,9 +310,10 @@
                 <textarea
                   class="d-block"
                   id="storeDescription"
+                  maxlength="1000"
                   placeholder="We work without holidays and weekends! Resident...We work without holidays and weekends! Resident...We work without holidays and weekends! Resident..."
                 ></textarea>
-                <span class="ml-1">0 / 1000</span>
+                <span class="ml-1 descriptionLetters">0 / 1000</span>
                 <small class="form-text text-danger ml-1"></small>
               </div>
               <button type="button" class="btn aboutStoreButton btn-block">

@@ -16,6 +16,7 @@ $(document).ready(() => {
   let storeDescription = $("#storeDescription");
 
   controlLocaleStorage();
+  renderBookTypes();
 
   function controlLocaleStorage() {
     if (JSON.parse(window.localStorage.getItem("adminLogin"))) {
@@ -224,7 +225,7 @@ $(document).ready(() => {
     if (descriptionValue.trim() === "") {
       errorFormMessage(description, "Please Enter Description");
     }
-    if (bookTypeValue.trim() === "") {
+    if (bookTypeValue && bookTypeValue.trim() === "") {
       errorFormMessage(bookType, "Please Enter Book Type");
     }
   });
@@ -299,10 +300,84 @@ $(document).ready(() => {
     try {
       database.ref("about").set(data);
       setTimeout(function () {
-        alert("Book data succesfully added!");
+        alert("Book data successfully added!");
       }, 500);
     } catch (err) {
       alert(err);
     }
+  }
+
+  // The number of letters in the textarea
+  $("#storeDescription").on("input", function () {
+    $(".descriptionLetters").html(`${storeDescription.val().length} / 1000`);
+    if (storeDescription.val().length === 1000) {
+      $(".descriptionLetters").css({
+        color: "var(--adminMainbgColor)",
+      });
+      return;
+    }
+    $(".descriptionLetters").css({
+      color: "black",
+    });
+  });
+
+  $("#description").on("input", function () {
+    $(".formDescriptionLetters").html(`${description.val().length} / 100`);
+    if (description.val().length === 100) {
+      $(".formDescriptionLetters").css({
+        color: "var(--adminMainbgColor)",
+      });
+      return;
+    }
+    $(".formDescriptionLetters").css({
+      color: "black",
+    });
+  });
+
+  // Add Book Types
+  $(".addTypeButton").on("click", () => {
+    let addTypeValue = $(".addType").val().trim();
+    if (addTypeValue.length < 4) {
+      $(".addTypeError").html("Book type error!");
+      $(".dropdownButton").removeClass("btn-success");
+      $(".dropdownButton").addClass("btn-danger");
+      $(".addType").val("");
+      return;
+    }
+    $(".addTypeError").html("");
+    $(".dropdownButton").removeClass("btn-danger");
+    $(".dropdownButton").addClass("btn-success");
+    $(".addType").val("");
+    let types = {
+      addTypeValue,
+    };
+    addDatabaseBookTypes(types);
+  });
+
+  // Add Database Book Types
+  function addDatabaseBookTypes(data) {
+    try {
+      database.ref("typesBook").push().set(data);
+      setTimeout(function () {
+        alert("New book type successfully added!");
+      }, 500);
+    } catch (err) {
+      alert(err);
+    }
+    renderBookTypes();
+  }
+
+  // Render Book Types
+  function renderBookTypes() {
+    database.ref("typesBook").on("value", function (snapshot) {
+      let typesBookArray = Object.values(snapshot.val());
+      bookType.html(
+        typesBookArray.map((item) => {
+          return `
+          <option value=${item}>${item.addTypeValue}</option>
+         `;
+        })
+      );
+    });
   }
 });

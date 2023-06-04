@@ -59,8 +59,10 @@
   }
   .searchTips {
     width: 80%;
-    height: 94px;
-    padding: 13px 0 26px 49px;
+    padding: 26px 29px 26px 29px;
+  }
+  .searchTips div:last-child p {
+    margin-bottom: 0;
   }
   .addBooks {
     margin-bottom: 47px;

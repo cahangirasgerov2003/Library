@@ -1,5 +1,6 @@
 $(document).ready(() => {
   let searchTips = $(".searchTips");
+  let globalTipsArray = null;
 
   // Form Section
   let bookName = $("#bookName");
@@ -140,22 +141,30 @@ $(document).ready(() => {
 
   // renderTips
   function renderTips(tipsArray) {
-    $(".searchTips").html(
-      tipsArray
-        .map((item) => {
-          return `<div class="d-flex">
+    globalTipsArray = tipsArray;
+    searchTips.removeClass("d-none");
+    searchTips.addClass("d-block");
+    $(".searchTips").html(`
+        <div class="d-flex align-items-center justify-content-center">
+          <img src="./assets/image/loadingTips.gif" alt="loading" width="150"/>
+        </div>
+    `);
+    setTimeout(() => {
+      $(".searchTips").html(
+        tipsArray
+          .map((item) => {
+            return `<div class="d-flex">
         <img src="./assets/image/icon/clock.svg" alt="clock" />
-        <p class="d-flex flex-wrap align-items-end">${
+        <p class="d-flex flex-wrap align-items-end bookNameTips">${
           item.volumeInfo.title.length > 20
             ? item.volumeInfo.title.slice(0, 18) + "..."
             : item.volumeInfo.title
         }</p>
       </div>`;
-        })
-        .join("")
-    );
-    searchTips.removeClass("d-none");
-    searchTips.addClass("d-block");
+          })
+          .join("")
+      );
+    }, 1000);
   }
 
   // Add form
@@ -380,4 +389,21 @@ $(document).ready(() => {
       );
     });
   }
+
+  // Click Book Name Tips
+  $(document).on("click", ".bookNameTips", function (e) {
+    let dataForForm = globalTipsArray.find((item) => {
+      if (
+        item.volumeInfo.title.length > 20
+          ? item.volumeInfo.title.slice(0, 18) + "..."
+          : item.volumeInfo.title === this.innerHTML.trim()
+      ) {
+        return item;
+      }
+    });
+    fillOutForm(dataForForm);
+  });
+
+  // Fill Out The Form
+  function fillOutForm(fillData) {}
 });

@@ -18,6 +18,8 @@ $(document).ready(() => {
 
   controlLocaleStorage();
   renderBookTypes();
+  renderJoinInfo();
+  renderContactInfo();
 
   function controlLocaleStorage() {
     if (JSON.parse(window.localStorage.getItem("adminLogin"))) {
@@ -106,6 +108,9 @@ $(document).ready(() => {
 
   // Search Book Section
   $(".searchInput").on("input", function () {
+    renderTipsSection();
+  });
+  function renderTipsSection() {
     let searchResult = $(".searchInput").val();
     if (searchResult.trim().length < 5 && searchResult.trim().length > 0) {
       searchTips.removeClass("d-block");
@@ -124,7 +129,7 @@ $(document).ready(() => {
     } else {
       searchBookTips(searchResult);
     }
-  });
+  }
 
   // Search Book Tips
   async function searchBookTips(tips) {
@@ -331,6 +336,10 @@ $(document).ready(() => {
   });
 
   $("#description").on("input", function () {
+    countLetterDescription();
+  });
+
+  function countLetterDescription() {
     $(".formDescriptionLetters").html(`${description.val().length} / 100`);
     if (description.val().length === 100) {
       $(".formDescriptionLetters").css({
@@ -341,7 +350,7 @@ $(document).ready(() => {
     $(".formDescriptionLetters").css({
       color: "black",
     });
-  });
+  }
 
   // Add Book Types
   $(".addTypeButton").on("click", () => {
@@ -379,14 +388,16 @@ $(document).ready(() => {
   // Render Book Types
   function renderBookTypes() {
     database.ref("typesBook").on("value", function (snapshot) {
-      let typesBookArray = Object.values(snapshot.val());
-      bookType.html(
-        typesBookArray.map((item) => {
-          return `
+      if (snapshot.exists()) {
+        let typesBookArray = Object.values(snapshot.val());
+        bookType.html(
+          typesBookArray.map((item) => {
+            return `
           <option value=${item}>${item.addTypeValue}</option>
          `;
-        })
-      );
+          })
+        );
+      }
     });
   }
 
@@ -405,5 +416,65 @@ $(document).ready(() => {
   });
 
   // Fill Out The Form
-  function fillOutForm(fillData) {}
+  function fillOutForm(fillData) {
+    bookName.val(fillData?.volumeInfo?.title ?? "");
+    authorName.val(fillData?.volumeInfo?.authors.join(" ") ?? "");
+    bookImageUrl1.val(fillData?.volumeInfo?.imageLinks?.thumbnail ?? "");
+    publicationYear.val(fillData?.volumeInfo?.publishedDate.slice(0, 4) ?? "");
+    description.val(
+      fillData?.volumeInfo?.description?.length > 100
+        ? fillData.volumeInfo.description.slice(0, 100)
+        : fillData.volumeInfo.description ?? ""
+    );
+    $(".searchInput").val("");
+    renderTipsSection();
+    countLetterDescription();
+  }
+  // Render Join Info
+  function renderJoinInfo() {
+    let infoJoinPeople = $(".infoJoinPeople");
+    database.ref("joinPeople").on("value", function (snapshot) {
+      if (snapshot.exists()) {
+        let joinPeopleArray = Object.values(snapshot.val());
+        infoJoinPeople.html(
+          joinPeopleArray
+            .map((item, index) => {
+              return `
+        <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${item.fullName}</td>
+            <td>${item.email}</td>
+        </tr>
+        `;
+            })
+            .join("")
+        );
+      }
+    });
+  }
+
+  // Render Contact Info
+  function renderContactInfo() {
+    let infoContactPeople = $(".infoContactPeople");
+    database.ref("contactPeople").on("value", function (snapshot) {
+      if (snapshot.exists()) {
+        let contactPeopleArray = Object.values(snapshot.val());
+        infoContactPeople.html(
+          contactPeopleArray
+            .map((item, index) => {
+              return `
+              <tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${item.fullName}</td>
+                    <td>${item.adress}</td>
+                    <td>${item.email}</td>
+                    <td>${item.phone_number}</td>
+              </tr>
+          `;
+            })
+            .join("")
+        );
+      }
+    });
+  }
 });

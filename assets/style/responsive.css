@@ -26,7 +26,7 @@
   .adminTitleLogo {
     display: none;
   }
-  .searchTips div img {
+  .searchTips :not(div.loadingContainer) img {
     display: none;
   }
   .responsiveLeftLogo {
@@ -108,7 +108,4 @@
   .closeLogo img {
     width: 25px;
   }
-  /* .adminPanel {
-    background: rgba(36, 20, 0, 0.7);
-  } */
 }

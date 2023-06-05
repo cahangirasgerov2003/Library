@@ -1,6 +1,36 @@
 $(document).ready(() => {
   let searchTips = $(".searchTips");
+  let openCloseImg = $("#openCloseImg");
   let globalTipsArray = null;
+
+  // Open Close Admin Panel For Mobile
+  openCloseImg.on("click", function () {
+    $("#adminPanelLeftSection").removeClass("adminPanelLeft");
+    $(".panelRight").addClass("d-none");
+    $(".adminPanel").css({
+      backgroundColor: "rgba(36, 20, 0, 0.7)",
+    });
+  });
+
+  $(".menuContainer ul li:not(:nth-last-child(-n+2)) a").on("click", () => {
+    $("#adminPanelLeftSection").addClass("adminPanelLeft");
+    $(".panelRight").removeClass("d-none");
+    $(".adminPanel").css({
+      backgroundColor: "white",
+    });
+  });
+
+  $(".contactLink").on("click", () => {
+    $("#adminPanelLeftSection").addClass("adminPanelLeft");
+    $(".panelRight").removeClass("d-none");
+    $(".adminPanel").css({
+      backgroundColor: "white",
+    });
+    document.querySelector("#contactForMobile").scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
 
   // Form Section
   let bookName = $("#bookName");
@@ -20,6 +50,7 @@ $(document).ready(() => {
   renderBookTypes();
   renderJoinInfo();
   renderContactInfo();
+  renderContactInfoForMobile();
 
   function controlLocaleStorage() {
     if (JSON.parse(window.localStorage.getItem("adminLogin"))) {
@@ -150,7 +181,7 @@ $(document).ready(() => {
     searchTips.removeClass("d-none");
     searchTips.addClass("d-block");
     $(".searchTips").html(`
-        <div class="d-flex align-items-center justify-content-center">
+        <div class="d-flex align-items-center justify-content-center loadingContainer">
           <img src="./assets/image/loadingTips.gif" alt="loading" width="150"/>
         </div>
     `);
@@ -161,9 +192,9 @@ $(document).ready(() => {
             return `<div class="d-flex">
         <img src="./assets/image/icon/clock.svg" alt="clock" />
         <p class="d-flex flex-wrap align-items-end bookNameTips">${
-          item.volumeInfo.title.length > 20
-            ? item.volumeInfo.title.slice(0, 18) + "..."
-            : item.volumeInfo.title
+          item?.volumeInfo?.title?.length > 20
+            ? item?.volumeInfo?.title.slice(0, 18) + "..."
+            : item?.volumeInfo?.title
         }</p>
       </div>`;
           })
@@ -471,6 +502,47 @@ $(document).ready(() => {
                     <td>${item.phone_number}</td>
               </tr>
           `;
+            })
+            .join("")
+        );
+      }
+    });
+  }
+
+  function renderContactInfoForMobile() {
+    let infoContactPeopleHalf = $(".infoContactPeopleHalf");
+    let infoContactPeopleOtherHalf = $(".infoContactPeopleOtherHalf");
+    database.ref("contactPeople").on("value", function (snapshot) {
+      if (snapshot.exists()) {
+        let contactPeopleArrayHalf = Object.values(snapshot.val());
+        infoContactPeopleHalf.html(
+          contactPeopleArrayHalf
+            .map((item, index) => {
+              if (index < 2) {
+                return `
+              <tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${item.fullName}</td>
+                    <td>${item.adress}</td>
+              </tr>
+          `;
+              }
+            })
+            .join("")
+        );
+
+        infoContactPeopleOtherHalf.html(
+          contactPeopleArrayHalf
+            .map((item, index) => {
+              if (index >= 2 && index < 4) {
+                return `
+              <tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${item.email}</td>
+                    <td>${item.phone_number}</td>
+              </tr>
+          `;
+              }
             })
             .join("")
         );

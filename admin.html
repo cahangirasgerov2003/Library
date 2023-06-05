@@ -76,7 +76,10 @@
     <div class="adminPanel d-none">
       <!-- d-flex -->
       <!-- Admin Panel Left -->
-      <div class="adminPanelLeft min-vh-100 d-inline-block adminMainbgColor">
+      <div
+        id="adminPanelLeftSection"
+        class="adminPanelLeft min-vh-100 adminMainbgColor d-inline-block"
+      >
         <div class="stickyContainer">
           <div class="d-flex justify-content-between">
             <div class="adminPanelLogo">
@@ -102,7 +105,7 @@
               </li>
               <li>
                 <img src="./assets/image/icon/book.svg" alt="book" />
-                <a href="#contact">Contact</a>
+                <a class="contactLink" href="#contact">Contact</a>
               </li>
               <li>
                 <img src="./assets/image/icon/book.svg" alt="book" />
@@ -124,7 +127,11 @@
             />
           </div>
           <div>
-            <img src="./assets/image/icon/open_close.svg" alt="logo" />
+            <img
+              id="openCloseImg"
+              src="./assets/image/icon/open_close.svg"
+              alt="logo"
+            />
           </div>
         </div>
 
@@ -409,8 +416,8 @@
                   <th scope="col">Adress</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
+              <tbody class="infoContactPeopleHalf">
+                <!-- <tr>
                   <th scope="row">1</th>
                   <td>Audrey Mckinney</td>
                   <td>1473 Ranchview Dr undefined San Jose</td>
@@ -419,7 +426,7 @@
                   <th scope="row">2</th>
                   <td>Savannah Howard</td>
                   <td>8445 Railroad St undefined Tampa</td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>
@@ -435,8 +442,8 @@
                   <th scope="col">Phone Number</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
+              <tbody class="infoContactPeopleOtherHalf">
+                <!-- <tr>
                   <th scope="row">1</th>
                   <td>lisa.watson@example.com</td>
                   <td>(209) 555-0104</td>
@@ -445,7 +452,7 @@
                   <th scope="row">2</th>
                   <td>jeff.brown@example.com</td>
                   <td>(704) 555-0127</td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>

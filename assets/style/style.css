@@ -284,3 +284,44 @@ a:hover {
 .contactUsTableContainer {
   width: 95%;
 }
+
+/* HOME PAGE */
+
+/* Animation */
+
+/* For general use */
+
+/*For special use*/
+.headerContainer {
+  width: 90%;
+  padding: 36px 92px 0 0;
+}
+.mainContainer {
+  width: 90%;
+  padding-right: 85px;
+}
+.homejoinUS h2 {
+  font: 400 14px var(--fontRoboto);
+  color: #241400;
+}
+.navContainer a {
+  font: 400 14px var(--montSerrat);
+  color: var(--homeMainTextColor);
+  padding: 0;
+}
+.navContainer li:not(:last-child) a {
+  margin-right: 40px;
+}
+.navContainer a:hover {
+  color: red;
+  text-decoration: underline;
+}
+.mainGoCatalog {
+  width: 25%;
+}
+.mainLogo {
+  width: 45%;
+}
+.mainLogo img {
+  width: 100%;
+}

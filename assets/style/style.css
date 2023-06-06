@@ -288,6 +288,14 @@ a:hover {
 /* HOME PAGE */
 
 /* Animation */
+@keyframes homeButtonAnime {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(0.95, 0.95);
+  }
+}
 
 /* For general use */
 
@@ -299,6 +307,7 @@ a:hover {
 .mainContainer {
   width: 90%;
   padding-right: 85px;
+  margin-top: 146px;
 }
 .homejoinUS h2 {
   font: 400 14px var(--fontRoboto);
@@ -317,11 +326,79 @@ a:hover {
   text-decoration: underline;
 }
 .mainGoCatalog {
-  width: 25%;
+  width: 35%;
 }
 .mainLogo {
   width: 45%;
 }
 .mainLogo img {
   width: 100%;
+}
+.mainGoCatalog h2 {
+  font: 900 36px var(--montSerrat);
+}
+.mainGoCatalog p {
+  font: 400 13px var(--montSerrat);
+  width: 80%;
+}
+.mainGoCatalog button p {
+  font: 900 15px var(--montSerrat);
+  color: #fff;
+}
+.mainGoCatalog button {
+  background: #e16a00;
+  width: 50%;
+  padding: 11px 0;
+  border: none;
+  border-radius: 3%;
+}
+.mainGoCatalog button:hover {
+  animation: homeButtonAnime 2s linear 0s infinite alternate;
+}
+.sectionCatalog {
+  margin: 66px 0 136px 0;
+}
+.availableCatalogsTitle {
+  margin-bottom: 47px;
+}
+.availableCatalogsTitle h2 {
+  font: 900 25px var(--montSerrat);
+}
+.availableCatalogs .row div {
+  padding: 0 18px;
+  margin: 0 0 36px 0;
+}
+.availableCatalogs .row div div {
+  box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 24px 0 25px 0;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  animation: homeButtonAnime 2s linear 0s infinite alternate;
+}
+.availableCatalogs .row div div:hover {
+  animation: none;
+  text-decoration: underline;
+}
+.availableCatalogs .row p {
+  font: 700 14px var(--montSerrat);
+  margin-bottom: 0;
+}
+.aboutStoreInfo {
+  margin-bottom: 160px;
+}
+.aboutStoreInfo h2 {
+  font: 900 25px var(--montSerrat);
+}
+.aboutStoreInfo h3 {
+  font: 900 50px var(--montSerrat);
+}
+.aboutStoreInfo p {
+  margin-left: 27px;
+  font: 400 13px var(--montSerrat);
+}
+.aboutStoreInfo div div {
+  padding: 0 40px 0 40px;
 }

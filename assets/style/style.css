@@ -388,6 +388,7 @@ a:hover {
 }
 .aboutStoreInfo {
   margin-bottom: 160px;
+  padding: 0 18px;
 }
 .aboutStoreInfo h2 {
   font: 900 25px var(--montSerrat);
@@ -399,6 +400,54 @@ a:hover {
   margin-left: 27px;
   font: 400 13px var(--montSerrat);
 }
-.aboutStoreInfo div div {
-  padding: 0 40px 0 40px;
+.deliveryContainer {
+  margin-bottom: 134px;
+}
+.deliveryContainer h2 {
+  font: 900 25px var(--montSerrat);
+  margin-bottom: 42px;
+}
+.deliveryContainer p {
+  font: 400 12px var(--montSerrat);
+  width: 73%;
+}
+.followUs {
+  margin-bottom: 133px;
+}
+.followUs h2 {
+  font: 900 25px var(--montSerrat);
+}
+.followUs a:not(:last-child) img {
+  margin-right: 54px;
+}
+.copyright {
+  background-color: #391f00;
+}
+.copyrightImage {
+  width: 30%;
+}
+.copyright img {
+  margin: 71px 0 87px 0;
+}
+.helpLists {
+  width: 70%;
+  margin: 56px 0 0 0;
+}
+.helpLists div:not(:last-child) {
+  margin-right: 91px;
+}
+.helpLists li {
+  color: var(--inputColor);
+  font: 400 18px var(--montSerrat);
+}
+.helpLists a {
+  color: #fff;
+}
+.helpLists a:hover {
+  text-decoration: underline;
+}
+.termsOfUse {
+  margin-top: 35px;
+  font: 400 12px var(--montSerrat);
+  color: #fff;
 }

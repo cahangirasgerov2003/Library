@@ -476,3 +476,42 @@ a:hover {
   font: 400 12px var(--montSerrat);
   color: #fff;
 }
+
+/* Click Background Shadow */
+.clickBgShadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: none;
+}
+
+/* Home Page Join Us */
+.homePageContainer {
+  width: 50%;
+  margin: 388px 0 0 0;
+  display: none;
+}
+/* Home Page Open Close Menu */
+.openCloseMenu {
+  margin: 43px 0 0 0;
+  display: none;
+}
+.closeButtonHomePage {
+  cursor: pointer;
+  margin: 0 15px 73px 0;
+}
+.menuSection {
+  margin: 0 11px 0 0;
+}
+.menuSection ul li:not(:last-child) {
+  margin: 0 0 20px 0;
+}
+.menuSection ul li a {
+  font: 400 17px var(--montSerrat);
+  color: #f2f2f2;
+}
+.menuSection ul li a:hover {
+  text-decoration: underline;
+  color: var(--adminMainbgColor);
+}

@@ -25,6 +25,9 @@
   .homejoinUS a {
     display: none;
   }
+  .adminAvatar {
+    cursor: pointer;
+  }
   #openCloseHomeImg img {
     display: block !important;
     width: 25px;
@@ -132,6 +135,11 @@
   }
   .navContainerFooter li:not(:last-child) a {
     margin-right: 40px;
+  }
+
+  /* Join Us Home Page */
+  .homePageContainer {
+    width: 80%;
   }
 }
 

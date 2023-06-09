@@ -515,3 +515,8 @@ a:hover {
   text-decoration: underline;
   color: var(--adminMainbgColor);
 }
+
+/* Catalog Page */
+.followUsCatalogPage {
+  margin-bottom: 104px;
+}

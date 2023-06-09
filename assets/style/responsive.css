@@ -17,6 +17,122 @@
   .nameAdress {
     margin-bottom: 20px;
   }
+
+  /* Home page */
+  .navContainer nav {
+    display: none;
+  }
+  .homejoinUS a {
+    display: none;
+  }
+  #openCloseHomeImg img {
+    display: block !important;
+    width: 25px;
+  }
+  .helpLists {
+    display: none !important;
+  }
+  .headerContainer {
+    width: 100%;
+    padding: 16px 15px 0 15px;
+  }
+  .mainContainer {
+    width: 100%;
+    margin-top: 80px;
+    padding: 0 15px 0 15px;
+  }
+  .homejoinUS div img {
+    margin-left: 22px;
+  }
+  .mainGoCatalog,
+  .mainGoCatalog p,
+  .mainLogo,
+  .mainGoCatalog button {
+    width: 100%;
+  }
+  .mainGoCatalog h2 {
+    font: 900 28px var(--montSerrat);
+  }
+  .mainLogo {
+    margin-top: 39px;
+    display: flex;
+    justify-content: center;
+  }
+  .sectionCatalog {
+    margin: 92px 0;
+  }
+  .availableCatalogsTitle {
+    margin-bottom: 30px;
+  }
+  .availableCatalogsTitle h2 {
+    font: 900 23px var(--montSerrat);
+  }
+  .availableCatalogs .row div {
+    margin: 0 0 15px 0;
+  }
+  .aboutStoreInfo {
+    margin-bottom: 57px;
+  }
+  .aboutStoreInfo p {
+    margin-left: 18px;
+  }
+  .deliveryContainer h2 {
+    margin-bottom: 12px;
+  }
+  .deliveryContainer p {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .followUs {
+    margin-bottom: 54px;
+  }
+  .followUs h2 {
+    font: 900 18px var(--montSerrat);
+  }
+  .followUs a:not(:last-child) img {
+    margin-right: 25px;
+  }
+  .followUs img {
+    width: 42px;
+  }
+  .copyright {
+    padding-bottom: 2px;
+  }
+  .copyrightImage {
+    width: 100%;
+    justify-content: center !important;
+  }
+  .copyright img {
+    margin: 18px 0 8px 0;
+  }
+  .termsOfUse {
+    display: none !important;
+  }
+  .navContainerFooter {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .privacyPolicy {
+    display: block;
+    margin: 0 auto;
+  }
+  .mainLogo img:first-child {
+    display: none;
+  }
+  .mainLogo img:last-child {
+    display: block;
+    width: 60%;
+  }
+  .navContainerFooter a {
+    font: 400 14px var(--montSerrat);
+    color: #f2f2f2;
+    padding: 0;
+  }
+  .navContainerFooter li:not(:last-child) a {
+    margin-right: 40px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -107,5 +223,18 @@
   }
   .closeLogo img {
     width: 25px;
+  }
+
+  /* Home Page */
+  .mainLogo img:last-child {
+    width: 100%;
+  }
+  .navContainerFooter a {
+    font: 400 12px var(--montSerrat);
+    color: #f2f2f2;
+    padding: 0;
+  }
+  .navContainerFooter li:not(:last-child) a {
+    margin-right: 8px;
   }
 }

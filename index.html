@@ -33,10 +33,10 @@
       <!-- Header -->
       <header class="w-100 d-flex justify-content-end">
         <div class="headerContainer d-flex justify-content-between">
-          <div>
+          <div id="bookLogoHomePage">
             <img src="./assets/image/icon/red_book.svg" alt="Book logo" />
           </div>
-          <div class="navContainer d-flex align-items-center">
+          <div class="navContainer align-items-center" style="display: flex">
             <nav>
               <ul class="nav">
                 <li class="nav-item">
@@ -62,11 +62,18 @@
               src="./assets/image/icon/homeAdminLogo.svg"
               alt="Admin logo"
               height="21px"
-              class="mr-3"
             />
             <a href="#">
               <h2 class="mb-0">Join us</h2>
             </a>
+            <!-- Mobile Home Page openClose logo -->
+            <div id="openCloseHomeImg" class="d-flex align-items-center">
+              <img
+                src="./assets/image/icon/open_close.svg"
+                alt="logo"
+                style="display: none"
+              />
+            </div>
           </div>
         </div>
       </header>
@@ -78,7 +85,7 @@
               class="mainGoCatalog d-flex flex-column justify-content-center"
             >
               <h2>Books from A to Z</h2>
-              <p>
+              <p class="mainGoCatalogDesc">
                 In our store you can find a book for every taste. A large
                 assortment. Nice prices. Interesting stories.
               </p>
@@ -88,6 +95,10 @@
             </div>
             <div class="mainLogo">
               <img src="./assets/image/homeMainLogo.png" alt="Books" />
+              <img
+                src="./assets/image/icon/homeMainLogoMobile.svg"
+                alt="Books"
+              />
             </div>
           </div>
         </section>
@@ -211,13 +222,13 @@
             <h2 class="mb-4">Follow us on social media</h2>
             <div>
               <a href="#">
-                <img src="./assets/image/icon/facebook.svg" />
+                <img src="./assets/image/icon/facebook.svg" alt="fecebook" />
               </a>
               <a href="#">
-                <img src="./assets/image/icon/twitter.svg" />
+                <img src="./assets/image/icon/twitter.svg" alt="twitter" />
               </a>
               <a href="#">
-                <img src="./assets/image/icon/instagram.svg" />
+                <img src="./assets/image/icon/instagram.svg" alt="instagram" />
               </a>
             </div>
           </div>
@@ -226,7 +237,7 @@
 
       <!-- Footer -->
       <footer>
-        <div class="copyright pb-4">
+        <div class="copyright">
           <div class="d-flex flex-wrap">
             <div class="copyrightImage d-flex justify-content-end">
               <img src="./assets/image/icon/logo.svg" height="68px" />
@@ -266,6 +277,35 @@
               >All rights reserved © 2003-2021 LIBRARY TERMS OF USE | Privacy
               Policy</strong
             >
+          </div>
+
+          <!-- Mobile Navbar -->
+          <div class="navContainerFooter" style="display: none">
+            <nav>
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Catalog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About Store</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Search</a>
+                </li>
+              </ul>
+            </nav>
+            <hr />
+          </div>
+
+          <!-- Mobile Privacy policy-->
+          <div class="privacyPolicy">
+            <h2 class="text-center">Library BookStore EACamp © 2003-2021</h2>
           </div>
         </div>
       </footer>

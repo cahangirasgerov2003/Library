@@ -287,7 +287,7 @@ a:hover {
 
 /* HOME PAGE */
 
-/* Animation */
+/* Animation and Media query */
 @keyframes homeButtonAnime {
   from {
     transform: scale(1, 1);
@@ -296,8 +296,6 @@ a:hover {
     transform: scale(0.95, 0.95);
   }
 }
-
-/* For general use */
 
 /*For special use*/
 .headerContainer {
@@ -312,6 +310,9 @@ a:hover {
 .homejoinUS h2 {
   font: 400 14px var(--fontRoboto);
   color: #241400;
+}
+.homejoinUS img {
+  margin-right: 8px;
 }
 .navContainer a {
   font: 400 14px var(--montSerrat);
@@ -333,6 +334,12 @@ a:hover {
 }
 .mainLogo img {
   width: 100%;
+}
+.mainLogo img:first-child {
+  display: block;
+}
+.mainLogo img:last-child {
+  display: none;
 }
 .mainGoCatalog h2 {
   font: 900 36px var(--montSerrat);
@@ -422,6 +429,7 @@ a:hover {
 }
 .copyright {
   background-color: #391f00;
+  padding-bottom: 24px;
 }
 .copyrightImage {
   width: 30%;
@@ -448,6 +456,23 @@ a:hover {
 }
 .termsOfUse {
   margin-top: 35px;
+  font: 400 12px var(--montSerrat);
+  color: #fff;
+}
+.navContainerFooter a:hover {
+  color: red;
+  text-decoration: underline;
+}
+.navContainerFooter hr {
+  border: 1px solid rgba(255, 255, 255, 0.59);
+  width: 250px;
+  margin: 32px 0 8px 0;
+}
+.privacyPolicy {
+  display: none;
+  width: 60%;
+}
+.privacyPolicy h2 {
   font: 400 12px var(--montSerrat);
   color: #fff;
 }

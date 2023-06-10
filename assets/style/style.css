@@ -21,6 +21,7 @@
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   border-radius: 10px;
@@ -519,4 +520,35 @@ a:hover {
 /* Catalog Page */
 .followUsCatalogPage {
   margin-bottom: 104px;
+}
+.bookOptionsSection {
+  margin: 130px 0 50px 0;
+}
+.bookOptionsContainer {
+  width: 90%;
+}
+.allBook {
+  margin-right: 270px;
+}
+.allBook h2 {
+  font: 900 25px var(--montSerrat);
+}
+.listStyleBooks {
+  overflow-x: auto;
+  width: 400px;
+}
+.listStyleBooks ul li {
+  font: 400 13px var(--montSerrat);
+  text-align: center;
+}
+.listStyleBooks ul li:not(:last-child) {
+  margin-right: 40px;
+}
+.listStyleBooks ul li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--inputColor);
+}
+.bookLibrarySection {
+  margin-bottom: 128px;
 }

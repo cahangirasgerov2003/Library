@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="./assets/style/global.css" />
     <title>Catalog Page</title>
   </head>
-  <body style="background-color: #e5e5e5">
+  <body style="background-color: #fff">
     <div
       class="catalogContainer w-100 position-relative"
       style="color: var(--homeMainTextColor)"
@@ -83,58 +83,26 @@
       </header>
       <main>
         <!-- Book Options -->
-        <section>
-          <div class="bookOptions d-flex align-items-center">
-            <div>
-              <h2>All Books</h2>
-            </div>
-            <div>
-              <div>
-                <ul class="d-flex">
+        <section class="bookOptionsSection">
+          <div class="d-flex justify-content-end">
+            <div class="bookOptionsContainer d-flex">
+              <div class="allBook d-flex align-items-center">
+                <h2 class="mb-0">All Books</h2>
+              </div>
+              <div class="listStyleBooks d-flex align-items-center">
+                <ul class="d-flex mb-0">
                   <li>Fantastic</li>
                   <li>Self-development</li>
                   <li>Baby</li>
                   <li>Clas</li>
                 </ul>
               </div>
-
-              <!-- Progress Books -->
-              <div class="progress">
-                <div
-                  class="progress-bar progress-bar-striped bg-info"
-                  role="progressbar"
-                  style="width: 50%"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Section Follow US -->
-        <section>
-          <div
-            class="followUsCatalogPage d-flex flex-column align-items-center"
-          >
-            <h2 class="mb-4">Follow us on social media</h2>
-            <div>
-              <a href="#">
-                <img src="./assets/image/icon/facebook.svg" alt="fecebook" />
-              </a>
-              <a href="#">
-                <img src="./assets/image/icon/twitter.svg" alt="twitter" />
-              </a>
-              <a href="#">
-                <img src="./assets/image/icon/instagram.svg" alt="instagram" />
-              </a>
             </div>
           </div>
         </section>
 
         <!-- Books Library -->
-        <section>
+        <section class="bookLibrarySection">
           <div class="allBooksLibrary d-none">
             <div
               id="carouselExampleInterval"
@@ -206,6 +174,26 @@
                 ></span>
                 <span class="sr-only">Next</span>
               </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Follow US -->
+        <section>
+          <div
+            class="followUs followUsCatalogPage d-flex flex-column align-items-center"
+          >
+            <h2 class="mb-4">Follow us on social media</h2>
+            <div>
+              <a href="#">
+                <img src="./assets/image/icon/facebook.svg" alt="fecebook" />
+              </a>
+              <a href="#">
+                <img src="./assets/image/icon/twitter.svg" alt="twitter" />
+              </a>
+              <a href="#">
+                <img src="./assets/image/icon/instagram.svg" alt="instagram" />
+              </a>
             </div>
           </div>
         </section>

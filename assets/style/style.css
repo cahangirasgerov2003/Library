@@ -621,3 +621,34 @@ a:hover {
 .bestellerTitle h2 {
   font: 900 25px var(--montSerrat);
 }
+.infoAndImageBook {
+  margin: 180px 0 110px 0;
+}
+/* .imageTargetBook {
+  padding-left: 140px;
+} */
+.backButton {
+  background-color: var(--inputColor);
+  border: none;
+  padding: 10px 30px 10px 9px;
+  box-shadow: 0px 3px 8px rgba(225, 106, 0, 0.19);
+  border-radius: 3px;
+  margin-bottom: 80px;
+}
+.backButton p {
+  margin: 0;
+  font: 900 12px var(--montSerrat);
+  color: #fff;
+}
+.timeBookAdded {
+  background: #2f80ed;
+  box-shadow: 0px 3px 8px rgba(225, 106, 0, 0.19);
+  border-radius: 3px;
+  padding: 7px 20px;
+}
+.timeBookAdded {
+  font: 900 12px var(--montSerrat);
+  color: #fff;
+}
+.infoBook {
+}

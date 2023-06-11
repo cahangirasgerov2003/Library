@@ -2,10 +2,12 @@
   /* BG Colors */
   --adminMainbgColor: #720418;
   --inputColor: #ff8b00;
+  --inputColorUserPage: #e16a00;
   --homeMainTextColor: #241400;
 
   /* Fonts */
   --montSerrat: "Montserrat", sans-serif;
   --fontRobota: "Roboto", sans-serif;
   --fontPreahvihear: "Preahvihear", sans-serif;
+  --fontRubik: "Rubik", sans-serif;
 }

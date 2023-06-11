@@ -82,9 +82,9 @@
         </div>
       </header>
 
-      <main class="mainBookLibrary d-none">
+      <main class="mainBookLibrary">
         <!-- Book Options -->
-        <section class="bookOptionsSection">
+        <section class="bookOptionsSection d-none">
           <div class="d-flex justify-content-end">
             <div class="bookOptionsContainer d-flex">
               <div class="allBook d-flex align-items-center">
@@ -103,7 +103,7 @@
         </section>
 
         <!-- Books Library All -->
-        <section class="bookLibrarySection">
+        <section class="bookLibrarySection d-none">
           <div class="d-flex justify-content-center">
             <div class="previousArrow">
               <img src="./assets/image/icon/previousArrow.svg" alt="arrow" />
@@ -196,7 +196,7 @@
         </section>
 
         <!-- Book Library Besteller -->
-        <section class="bookLibrarySectionBesteller">
+        <section class="bookLibrarySectionBesteller d-none">
           <div class="bestellerTitle d-flex justify-content-center">
             <h2>Besteller</h2>
           </div>
@@ -291,8 +291,8 @@
           </div>
         </section>
 
-        <!-- Book Library Besteller -->
-        <section class="bookLibrarySectionNew">
+        <!-- Book Library New Releases -->
+        <section class="bookLibrarySectionNew d-none">
           <div class="bestellerTitle d-flex justify-content-center">
             <h2>New releases</h2>
           </div>
@@ -387,33 +387,11 @@
           </div>
         </section>
 
-        <!-- Section Follow US -->
-        <section>
-          <div
-            class="followUs followUsCatalogPage d-flex flex-column align-items-center"
-          >
-            <h2 class="mb-4">Follow us on social media</h2>
-            <div>
-              <a href="#">
-                <img src="./assets/image/icon/facebook.svg" alt="fecebook" />
-              </a>
-              <a href="#">
-                <img src="./assets/image/icon/twitter.svg" alt="twitter" />
-              </a>
-              <a href="#">
-                <img src="./assets/image/icon/instagram.svg" alt="instagram" />
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <main>
         <!-- Info Book and Image Book Section -->
         <section class="infoAndImageBook d-flex justify-content-end">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8 col-sm-6 infoTargetBook">
+          <div class="container pr-0 pl-5">
+            <div class="row d-flex justify-content-between">
+              <div class="col-md-7 infoTargetBook">
                 <div>
                   <button class="backButton">
                     <p>< BACK</p>
@@ -438,15 +416,68 @@
                   </p>
                 </div>
               </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="imageTargetBook">
+              <div
+                class="col-md-4 d-flex justify-content-center align-items-end"
+              >
+                <div class="imageTargetBook w-100">
                   <img
                     src="./assets/image/icon/bookExample.svg"
                     alt="book"
-                    height="500"
+                    width="100%"
                   />
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="anonimMessage">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="anonimMessageInput d-flex align-items-center">
+                  <input placeholder="your anonim comment..." />
+                  <button>
+                    <img
+                      src="./assets/image/icon/sendMessage.svg"
+                      alt="submit"
+                    />
+                  </button>
+                </div>
+
+                <div class="anonimMessageContent">
+                  <div class="d-flex align-items-center mb-4 messageTitle">
+                    <h2 class="mb-0 mr-4">anonim</h2>
+                    <p class="mb-0">18:32 today</p>
+                  </div>
+                  <p class="mb-0">
+                    Woah, your project looks awesome! How long have you been
+                    coding for? I am still new, but think I want to dive into
+                    React as well soon. Perhaps you can give me an insight on
+                    where I can learn React? Thanks!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Follow US -->
+        <section>
+          <div
+            class="followUs followUsCatalogPage d-flex flex-column align-items-center"
+          >
+            <h2 class="mb-4">Follow us on social media</h2>
+            <div>
+              <a href="#">
+                <img src="./assets/image/icon/facebook.svg" alt="fecebook" />
+              </a>
+              <a href="#">
+                <img src="./assets/image/icon/twitter.svg" alt="twitter" />
+              </a>
+              <a href="#">
+                <img src="./assets/image/icon/instagram.svg" alt="instagram" />
+              </a>
             </div>
           </div>
         </section>

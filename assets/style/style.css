@@ -518,6 +518,16 @@ a:hover {
 }
 
 /* Catalog Page */
+/* Animation */
+@keyframes catalogCardsAnime {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.02, 1.02);
+  }
+}
+
 .followUsCatalogPage {
   margin-bottom: 104px;
 }
@@ -551,4 +561,63 @@ a:hover {
 }
 .bookLibrarySection {
   margin-bottom: 128px;
+}
+.bookLibrarySectionBesteller {
+  margin-bottom: 171px;
+}
+.bookLibrarySectionNew {
+  margin-bottom: 206px;
+}
+.bookLibraryContainer {
+  width: 90%;
+}
+.previousArrow,
+.nextArrow {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.previousArrow {
+  margin-right: 30px;
+}
+.nextArrow {
+  margin-left: 30px;
+}
+.libraryCards {
+  padding: 24px 25px 17px 25px;
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  animation: catalogCardsAnime 1.5s linear 0s infinite alternate;
+}
+.libraryCardsBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+.libraryCardsBody h5 {
+  font: 700 14px var(--montSerrat);
+  margin: 30px 0 10px 0;
+}
+.libraryCardsBody p {
+  font: 400 12px var(--montSerrat);
+  margin-bottom: 16px;
+}
+.libraryCardsBody button {
+  padding: 10px 27px;
+  background-color: var(--inputColor);
+  border: none;
+  box-shadow: 0px 3px 8px rgba(225, 106, 0, 0.19);
+  border-radius: 3px;
+}
+.libraryCardsBody button p {
+  font: 900 12px var(--montSerrat);
+  color: #ffffff;
+  margin-bottom: 0;
+}
+.bestellerTitle {
+  margin-bottom: 50px;
+}
+.bestellerTitle h2 {
+  font: 900 25px var(--montSerrat);
 }

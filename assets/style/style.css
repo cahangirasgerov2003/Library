@@ -749,3 +749,61 @@ a:hover {
   font: 400 23px var(--fontCrimsonText);
   color: #797667;
 }
+.searchSection {
+  margin: 138px 0 124px 0;
+}
+.searchContainer {
+  width: 90%;
+}
+.searchTitle {
+  font: 700 36px var(--montSerrat);
+  margin-bottom: 44px;
+}
+.searchInputAndButton {
+  width: 30%;
+}
+.searchInputAndButton input {
+  background: #ffffff;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  padding: 23px 0 23px 27px;
+  margin-bottom: 44px;
+}
+.searchInputAndButton button {
+  background: #e16a00;
+  color: #fff;
+  font: 400 30px var(--fontCrimsonText);
+  border-radius: 5px;
+  border: none;
+  padding: 12px 0;
+}
+.searchResult {
+  width: 65%;
+}
+.searchBookAndInfo {
+  margin: 0 30px;
+}
+.nextSearchResult {
+  margin-right: 12px;
+}
+.searchBookAndInfo {
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  padding: 47px 56px 134px 31px;
+}
+.searchBookAndInfo div img {
+  margin-right: 37px;
+}
+.searchBookInfo h2 {
+  font: 700 24px var(--montSerrat);
+  margin-bottom: 12px;
+}
+.searchBookInfo h3 {
+  font: 400 18px var(--montSerrat);
+  margin-bottom: 12px;
+}
+.searchBookInfo p {
+  font: 400 14px var(--montSerrat);
+  line-height: 27px;
+  text-align: justify;
+}

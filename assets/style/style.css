@@ -324,8 +324,9 @@ a:hover {
   margin-right: 40px;
 }
 .navContainer a:hover {
-  color: red;
+  color: var(--adminMainbgColor);
   text-decoration: underline;
+  cursor: pointer;
 }
 .mainGoCatalog {
   width: 35%;
@@ -698,6 +699,8 @@ a:hover {
   line-height: 24px;
   text-align: justify;
 }
+
+/* About Store And Contact Us Page */
 .aboutStoreSection,
 .contactUsSection {
   margin: 115px 0 200px 0;
@@ -749,6 +752,8 @@ a:hover {
   font: 400 23px var(--fontCrimsonText);
   color: #797667;
 }
+
+/* Search Page */
 .searchSection {
   margin: 138px 0 124px 0;
 }

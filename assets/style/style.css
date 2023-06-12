@@ -698,7 +698,8 @@ a:hover {
   line-height: 24px;
   text-align: justify;
 }
-.aboutStoreSection {
+.aboutStoreSection,
+.contactUsSection {
   margin: 115px 0 200px 0;
 }
 .aboutStoreContainer {
@@ -716,4 +717,35 @@ a:hover {
   font: 400 18px var(--montSerrat);
   line-height: 35px;
   text-align: justify;
+}
+.contactTitle h2 {
+  font: 900 36px var(--montSerrat);
+  margin-bottom: 28px;
+}
+.sendButton {
+  margin-top: 10px;
+  background-color: var(--inputColorUserPage);
+  padding: 17px 0;
+  border: none;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+.sendButton p {
+  font: 400 30px var(--fontCrimsonText);
+  margin-bottom: 0;
+  color: #fff;
+}
+.contactUsSection input {
+  background: #ffffff;
+  border: 1px solid #cecece;
+  padding: 25px 0 25px 38px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  margin-bottom: 33px;
+  width: 100%;
+}
+::placeholder,
+.contactUsSection input {
+  font: 400 23px var(--fontCrimsonText);
+  color: #797667;
 }

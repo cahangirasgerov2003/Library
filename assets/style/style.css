@@ -752,6 +752,20 @@ a:hover {
   font: 400 23px var(--fontCrimsonText);
   color: #797667;
 }
+.callUs div h2 {
+  font: 900 12px var(--montSerrat);
+  color: #fff;
+}
+.callUs button {
+  border: 1px solid var(--inputColorUserPage);
+  color: var(--inputColorUserPage);
+  padding: 4px 6px 4px 6px;
+  font: 500 14px var(--montSerrat);
+  background-color: #391f00;
+}
+.callUs button:hover {
+  transform: scale(0.98, 0.98);
+}
 
 /* Search Page */
 .searchSection {
@@ -797,7 +811,7 @@ a:hover {
   padding: 47px 56px 134px 31px;
 }
 .searchBookAndInfo div img {
-  margin-right: 37px;
+  margin-right: 30px;
 }
 .searchBookInfo h2 {
   font: 700 24px var(--montSerrat);

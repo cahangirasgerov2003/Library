@@ -698,3 +698,22 @@ a:hover {
   line-height: 24px;
   text-align: justify;
 }
+.aboutStoreSection {
+  margin: 115px 0 200px 0;
+}
+.aboutStoreContainer {
+  width: 90%;
+  padding-right: 57px;
+}
+.infoStore {
+  margin-right: 72px;
+}
+.infoStore h2 {
+  font: 900 36px var(--montSerrat);
+  margin-bottom: 11px;
+}
+.infoStore p {
+  font: 400 18px var(--montSerrat);
+  line-height: 35px;
+  text-align: justify;
+}

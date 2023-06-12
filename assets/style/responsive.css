@@ -360,4 +360,15 @@
   .searchBookInfo h3 {
     text-align: center;
   }
+
+  .arrows {
+    display: flex !important;
+  }
+  .mobileNextSearchResult:hover,
+  .mobilePreviousSearchResult:hover {
+    cursor: pointer;
+  }
+  .mobilePreviousSearchResult {
+    margin-right: 100px;
+  }
 }

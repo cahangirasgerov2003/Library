@@ -805,6 +805,10 @@ a:hover {
 .nextSearchResult {
   margin-right: 12px;
 }
+.previousSearchResult:hover,
+.nextSearchResult:hover {
+  cursor: pointer;
+}
 .searchBookAndInfo {
   background: #ffffff;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);

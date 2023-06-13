@@ -830,3 +830,12 @@ a:hover {
   line-height: 27px;
   text-align: justify;
 }
+
+a[aria-disabled="true"] {
+  color: #888;
+  text-decoration: none;
+  cursor: not-allowed;
+}
+a[aria-disabled="true"]:hover {
+  text-decoration: none;
+}

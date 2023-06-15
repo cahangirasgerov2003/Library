@@ -36,6 +36,11 @@
   background-color: #5c0414;
 }
 
+/* ::placeholder {
+  font: 400 23px var(--fontCrimsonText);
+  color: #797667;
+} */
+
 /* For general use */
 * {
   box-sizing: border-box;
@@ -747,7 +752,6 @@ a:hover {
   margin-bottom: 33px;
   width: 100%;
 }
-::placeholder,
 .contactUsSection input {
   font: 400 23px var(--fontCrimsonText);
   color: #797667;

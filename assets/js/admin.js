@@ -186,16 +186,19 @@ $(document).ready(() => {
         </div>
     `);
     setTimeout(() => {
+      console.log(tipsArray);
       $(".searchTips").html(
         tipsArray
           .map((item) => {
             return `<div class="d-flex">
         <img src="./assets/image/icon/clock.svg" alt="clock" />
-        <p class="d-flex flex-wrap align-items-end bookNameTips">${
-          item?.volumeInfo?.title?.length > 20
-            ? item?.volumeInfo?.title.slice(0, 18) + "..."
-            : item?.volumeInfo?.title
-        }</p>
+        <p class="d-flex flex-wrap align-items-end bookNameTips" data-id=${
+          item.id
+        }>${
+              item?.volumeInfo?.title?.length > 20
+                ? item?.volumeInfo?.title.slice(0, 18) + "..."
+                : item?.volumeInfo?.title
+            }</p>
       </div>`;
           })
           .join("")
@@ -424,7 +427,7 @@ $(document).ready(() => {
         bookType.html(
           typesBookArray.map((item) => {
             return `
-          <option value=${item}>${item.addTypeValue}</option>
+          <option value=${item.addTypeValue}>${item.addTypeValue}</option>
          `;
           })
         );
@@ -434,12 +437,10 @@ $(document).ready(() => {
 
   // Click Book Name Tips
   $(document).on("click", ".bookNameTips", function (e) {
+    console.log(globalTipsArray);
+    let idTargetBook = e.target.getAttribute("data-id");
     let dataForForm = globalTipsArray.find((item) => {
-      if (
-        item.volumeInfo.title.length > 20
-          ? item.volumeInfo.title.slice(0, 18) + "..."
-          : item.volumeInfo.title === this.innerHTML.trim()
-      ) {
+      if (idTargetBook === item.id) {
         return item;
       }
     });
@@ -448,6 +449,7 @@ $(document).ready(() => {
 
   // Fill Out The Form
   function fillOutForm(fillData) {
+    console.log(fillData);
     bookName.val(fillData?.volumeInfo?.title ?? "");
     authorName.val(fillData?.volumeInfo?.authors.join(" ") ?? "");
     bookImageUrl1.val(fillData?.volumeInfo?.imageLinks?.thumbnail ?? "");

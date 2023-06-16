@@ -24,6 +24,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
+    <!-- Slick Slider -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+
     <!-- Global Css -->
     <link rel="stylesheet" href="./assets/style/global.css" />
     <title>Catalog Page</title>
@@ -108,8 +115,10 @@
             <div class="previousArrow">
               <img src="./assets/image/icon/previousArrow.svg" alt="arrow" />
             </div>
-            <div class="d-flex justify-content-between bookLibraryContainer">
-              <div class="card libraryCards">
+            <div
+              class="d-flex justify-content-between bookLibraryContainer bookLibraryContainerAllBooks"
+            >
+              <!-- <div class="card libraryCards">
                 <img
                   src="./assets/image/icon/bookExample.svg"
                   class="card-img-top"
@@ -187,7 +196,7 @@
                     <p>READ MORE</p>
                   </button>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="nextArrow">
               <img src="./assets/image/icon/nextArrow.svg" alt="arrow" />
@@ -196,7 +205,7 @@
         </section>
 
         <!-- Book Library Besteller -->
-        <section class="bookLibrarySectionBesteller">
+        <!-- <section class="bookLibrarySectionBesteller">
           <div class="bestellerTitle d-flex justify-content-center">
             <h2>Besteller</h2>
           </div>
@@ -289,10 +298,10 @@
               <img src="./assets/image/icon/nextArrow.svg" alt="arrow" />
             </div>
           </div>
-        </section>
+        </section> -->
 
         <!-- Book Library New Releases -->
-        <section class="bookLibrarySectionNew">
+        <!-- <section class="bookLibrarySectionNew">
           <div class="bestellerTitle d-flex justify-content-center">
             <h2>New releases</h2>
           </div>
@@ -385,7 +394,7 @@
               <img src="./assets/image/icon/nextArrow.svg" alt="arrow" />
             </div>
           </div>
-        </section>
+        </section> -->
 
         <!-- Info Book and Image Book Section -->
         <section class="infoAndImageBook justify-content-end d-none">
@@ -574,6 +583,12 @@
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Jquery Pulgins -->
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>

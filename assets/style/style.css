@@ -568,11 +568,14 @@ a:hover {
 .bookLibrarySection {
   margin-bottom: 128px;
 }
-.bookLibrarySectionBesteller {
+/* .bookLibrarySectionBesteller {
   margin-bottom: 171px;
 }
 .bookLibrarySectionNew {
   margin-bottom: 206px;
+} */
+.typeOfBooksSection {
+  margin-bottom: 130px;
 }
 .bookLibraryContainer {
   width: 90%;

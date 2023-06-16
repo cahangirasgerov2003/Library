@@ -32,11 +32,12 @@ $(document).ready(() => {
         })
       );
 
+      // Add Slick Section
       $(".bookLibrarySection").after(
         catalogBooks.map(function (item) {
           return `
           <section class="typeOfBooksSection">
-          <div class="bestellerTitle d-flex justify-content-center">
+          <div class="bestellerTitle d-flex justify-content-center ${item.addTypeValue}">
             <h2>${item.addTypeValue}</h2>
           </div>
 
@@ -87,8 +88,8 @@ $(document).ready(() => {
     });
   }
 
+  // Start Slick Show
   function playSlickShow(section, dataBook) {
-    console.log(dataBook);
     $(section).html(
       dataBook.map((item) => {
         return `
@@ -123,16 +124,14 @@ $(document).ready(() => {
       })
     );
     if (dataBook.length > 5) {
-      $(section)
-        .not(".slick-initialized")
-        .slick({
-          infinite: true,
-          autoplay: true,
-          slidesToShow: 5,
-          speed: 700,
-          prevArrow: $(".previousArrow"),
-          nextArrow: $(".nextArrow"),
-        });
+      $(section).slick({
+        infinite: true,
+        autoplay: true,
+        slidesToShow: 5,
+        speed: 700,
+        prevArrow: $(".previousArrow"),
+        nextArrow: $(".nextArrow"),
+      });
     } else if (dataBook.length <= 5) {
       $(section).next().addClass("d-none");
       $(section).prev().addClass("d-none");
@@ -144,13 +143,13 @@ $(document).ready(() => {
       if (dataBook.length == 0) {
         $(section).html(`
           <div>
-            <div class="card libraryCards" style="width:184px">
+            <div class="card libraryCards">
               <div class="d-flex justify-content-center">
                 <img
                   src="./assets/image/Error.png"
                   class="card-img-top"
                   alt="book"
-                  style="width: 134px; height: 190px; object-fit: cover;"
+                  style="width: 190px; height: 190px; object-fit: cover;"
                 />
               </div>
               <div class="card-body libraryCardsBody">
@@ -166,6 +165,22 @@ $(document).ready(() => {
       }
     }
   }
+
+  // Click Lists Book
+  $(document).on("click", ".listBooks li", function (e) {
+    $(".listBooks li").css({
+      color: "var(--homeMainTextColor)",
+      "text-decoration": "none",
+    });
+    $(this).css({
+      color: "var(--inputColor)",
+      "text-decoration": "underline",
+    });
+    document.querySelector(`.${this.innerHTML}`).scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
 
   // Control Pathname
   function getPathName() {

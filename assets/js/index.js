@@ -1,7 +1,7 @@
 $(document).ready(() => {
-  getPathName();
   let catalogBooks = null;
 
+  getPathName();
   // Home page and Catalog options books
   function fillCatalogSection(node) {
     database.ref(node).on("value", function (snapshot) {
@@ -102,7 +102,7 @@ $(document).ready(() => {
       dataBook.map((item) => {
         return `
         <div>
-        <div class="card libraryCards" style="width:184px">
+        <div class="card libraryCards" style="width:184px !important">
         <div class="d-flex justify-content-center">
                 <img
                   src=${item[1].bookImageUrl1Value}
@@ -224,12 +224,38 @@ $(document).ready(() => {
 
   // Click Read More Button
   $(document).on("click", ".readMore", function () {
-    console.log($(this).attr("id"));
+    let clickedBookId = $(this).attr("id");
     $(".bookLibrarySection").fadeOut(120);
     $(".typeOfBooksSection").fadeOut(120);
+    $(".bookOptionsSection").fadeOut(120);
     $(".infoAndImageBook").fadeIn(120);
     $(".anonimMessage").fadeIn(120);
-    $(".bookOptionsSection").fadeOut(120);
+    renderClickedBookInfo(clickedBookId);
+  });
+
+  function renderClickedBookInfo(id) {
+    let clicedBookData = JSON.parse(localStorage.getItem("allBooks")).find(
+      (item) => {
+        if (item[0] === id) {
+          return item;
+        }
+      }
+    );
+    console.log(clicedBookData);
+    $(".infoBook h2").html(clicedBookData[1].bookNameValue);
+    $(".infoBook h3").html(clicedBookData[1].authorNameValue);
+    $(".infoBook p:last-child").html(clicedBookData[1].descriptionValue);
+    $(".imageTargetBook img").attr("src", clicedBookData[1].bookImageUrl1Value);
+  }
+
+  // Back Button
+  $(document).on("click", ".backButton", function () {
+    // $(".infoAndImageBook").fadeOut(120);
+    // $(".anonimMessage").fadeOut(120);
+    // $(".bookLibrarySection").fadeIn(120);
+    // $(".typeOfBooksSection").fadeIn(120);
+    // $(".bookOptionsSection").fadeIn(120);
+    window.location.reload();
   });
 
   // Open Close Button

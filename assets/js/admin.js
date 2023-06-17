@@ -374,8 +374,8 @@ $(document).ready(() => {
   });
 
   function countLetterDescription() {
-    $(".formDescriptionLetters").html(`${description.val().length} / 100`);
-    if (description.val().length === 100) {
+    $(".formDescriptionLetters").html(`${description.val().length} / 1000`);
+    if (description.val().length === 1000) {
       $(".formDescriptionLetters").css({
         color: "var(--adminMainbgColor)",
       });
@@ -455,8 +455,8 @@ $(document).ready(() => {
     bookImageUrl1.val(fillData?.volumeInfo?.imageLinks?.thumbnail ?? "");
     publicationYear.val(fillData?.volumeInfo?.publishedDate.slice(0, 4) ?? "");
     description.val(
-      fillData?.volumeInfo?.description?.length > 100
-        ? fillData.volumeInfo.description.slice(0, 100)
+      fillData?.volumeInfo?.description?.length > 1000
+        ? fillData.volumeInfo.description.slice(0, 1000)
         : fillData.volumeInfo.description ?? ""
     );
     $(".searchInput").val("");

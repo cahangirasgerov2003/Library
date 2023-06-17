@@ -40,6 +40,72 @@
       class="catalogContainer w-100 position-relative"
       style="color: var(--homeMainTextColor)"
     >
+      <!-- Click Background Shadow -->
+      <div class="clickBgShadow" style="background-color: rgba(0, 0, 0, 0.5)">
+        <!-- Join Us Home Page -->
+        <div class="flex-center">
+          <div class="homePageContainer bg-white">
+            <div class="welcomeAdmin flex-center fontMontSerrat">
+              <h5 class="modal-title textWelcome text-center">Join Us</h5>
+            </div>
+            <div class="inputContainer">
+              <div class="w-100 flex-center">
+                <input
+                  class="modalUsername"
+                  type="text"
+                  placeholder="Full name"
+                />
+              </div>
+              <div class="w-100 flex-center">
+                <input
+                  class="modalPassword"
+                  type="password"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div class="signIn">
+              <button type="button" class="text-white">Join</button>
+            </div>
+
+            <div
+              class="alert alert-danger join-error mx-auto"
+              role="alert"
+              style="display: none"
+            >
+              <h4>Error</h4>
+              <p class="errorInformation">
+                Enter a secure password that meets world standards!
+              </p>
+            </div>
+            <div
+              class="alert alert-success join-success mx-auto"
+              role="alert"
+              style="display: none"
+            >
+              <h4>Successful</h4>
+              <p>Welcome admin panel &#9996;</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Option Home Page -->
+        <div class="d-flex flex-column align-items-end openCloseMenu">
+          <div class="closeButtonHomePage">
+            <img src="./assets/image/icon/close.svg" alt="close" width="16px" />
+          </div>
+          <div class="menuSection">
+            <ul class="d-flex flex-column align-items-end">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./catalog.html">Catalog</a></li>
+              <li><a href="./store.html">About Store</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+              <li><a href="./search.html">Search</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <!-- Header -->
       <header class="w-100 d-flex justify-content-end">
         <div class="headerContainer d-flex justify-content-between">
@@ -112,12 +178,20 @@
         <!-- Books Library All -->
         <section class="bookLibrarySection">
           <div class="d-flex justify-content-center">
-            <div class="previousArrow">
+            <div class="previousArrow d-none">
               <img src="./assets/image/icon/previousArrow.svg" alt="arrow" />
             </div>
             <div
               class="d-flex justify-content-between bookLibraryContainer bookLibraryContainerAllBooks"
             >
+              <div class="d-flex justify-content-center w-100">
+                <img
+                  class="rounded-circle"
+                  src="./assets/image/loadingTips.gif"
+                  width="100"
+                  alt=""
+                />
+              </div>
               <!-- <div class="card libraryCards">
                 <img
                   src="./assets/image/icon/bookExample.svg"
@@ -198,7 +272,7 @@
                 </div>
               </div> -->
             </div>
-            <div class="nextArrow">
+            <div class="nextArrow d-none">
               <img src="./assets/image/icon/nextArrow.svg" alt="arrow" />
             </div>
           </div>
@@ -397,9 +471,12 @@
         </section> -->
 
         <!-- Info Book and Image Book Section -->
-        <section class="infoAndImageBook justify-content-end d-none">
+        <section
+          class="infoAndImageBook justify-content-end"
+          style="display: none"
+        >
           <!-- d-flex -->
-          <div class="container pr-0 pl-5">
+          <div class="container pr-0 pl-md-0 pl-lg-5">
             <div class="row d-flex justify-content-between">
               <div class="col-md-7 infoTargetBook">
                 <div>
@@ -441,7 +518,7 @@
           </div>
         </section>
 
-        <section class="anonimMessage d-none">
+        <section class="anonimMessage" style="display: none">
           <div class="container">
             <div class="row">
               <div class="col-md-7">

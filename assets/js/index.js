@@ -23,6 +23,14 @@ $(document).ready(() => {
         })
       );
 
+      $(document).on(
+        "click",
+        ".availableCatalogs div.row div div",
+        function () {
+          window.location.pathname = "catalog.html";
+        }
+      );
+
       // Catalog options books
       $(".listBooks").html(
         catalogBooks.map((item) => {
@@ -68,7 +76,7 @@ $(document).ready(() => {
     database.ref(node).on("value", function (snapshot) {
       localStorage.setItem(
         "allBooks",
-        JSON.stringify(Object.values(snapshot.val()))
+        JSON.stringify(Object.entries(snapshot.val()))
       );
 
       playSlickShow(
@@ -79,7 +87,7 @@ $(document).ready(() => {
         playSlickShow(
           `#${catalogBooks[i].addTypeValue}`,
           JSON.parse(localStorage.getItem("allBooks")).filter((item) => {
-            if (item.bookTypeValue === catalogBooks[i].addTypeValue) {
+            if (item[1].bookTypeValue === catalogBooks[i].addTypeValue) {
               return item;
             }
           })
@@ -97,7 +105,7 @@ $(document).ready(() => {
         <div class="card libraryCards" style="width:184px">
         <div class="d-flex justify-content-center">
                 <img
-                  src=${item.bookImageUrl1Value}
+                  src=${item[1].bookImageUrl1Value}
                   class="card-img-top"
                   alt="book"
                   style="width: 134px; height: 190px; object-fit: cover;"
@@ -105,16 +113,16 @@ $(document).ready(() => {
         </div>
                   <div class="card-body libraryCardsBody">
                   <h5 class="card-title">${
-                    item.bookNameValue.length > 10
-                      ? item.bookNameValue.slice(0, 11) + "..."
-                      : item.bookNameValue
+                    item[1].bookNameValue.length > 10
+                      ? item[1].bookNameValue.slice(0, 11) + "..."
+                      : item[1].bookNameValue
                   }</h5>
                   <p class="card-text">${
-                    item.authorNameValue.length > 10
-                      ? item.authorNameValue.slice(0, 11) + "..."
-                      : item.authorNameValue
+                    item[1].authorNameValue.length > 10
+                      ? item[1].authorNameValue.slice(0, 11) + "..."
+                      : item[1].authorNameValue
                   }</p>
-                  <button>
+                  <button class="readMore" id=${item[0]}>
                     <p>READ MORE</p>
                   </button>
                 </div>
@@ -132,6 +140,10 @@ $(document).ready(() => {
         prevArrow: $(".previousArrow"),
         nextArrow: $(".nextArrow"),
       });
+      $(section).next().removeClass("d-none");
+      $(section).prev().removeClass("d-none");
+      $(section).next().addClass("d-flex");
+      $(section).prev().addClass("d-flex");
     } else if (dataBook.length <= 5) {
       $(section).next().addClass("d-none");
       $(section).prev().addClass("d-none");
@@ -176,11 +188,16 @@ $(document).ready(() => {
       color: "var(--inputColor)",
       "text-decoration": "underline",
     });
-    document.querySelector(`.${this.innerHTML}`).scrollIntoView({
+    scrolling(this.innerHTML);
+  });
+
+  // Scroll Click Book
+  function scrolling(link) {
+    document.querySelector(`.${link}`).scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
-  });
+  }
 
   // Control Pathname
   function getPathName() {
@@ -188,7 +205,7 @@ $(document).ready(() => {
     let lastPartPathName = pathName[pathName.length - 1];
 
     $(`.navContainer a[href='./${lastPartPathName}']`).css({
-      color: "var(--adminMainbgColor)",
+      color: "var(--inputColor)",
       "text-decoration": "underline",
     });
 
@@ -204,6 +221,27 @@ $(document).ready(() => {
       return;
     }
   }
+
+  // Click Read More Button
+  $(document).on("click", ".readMore", function () {
+    console.log($(this).attr("id"));
+    $(".bookLibrarySection").fadeOut(120);
+    $(".typeOfBooksSection").fadeOut(120);
+    $(".infoAndImageBook").fadeIn(120);
+    $(".anonimMessage").fadeIn(120);
+    $(".bookOptionsSection").fadeOut(120);
+  });
+
+  // Open Close Button
+  $("#openCloseHomeImg").on("click", function () {
+    $(".clickBgShadow").addClass("d-block");
+  });
+
+  // Close Button
+  $(".closeButtonHomePage").on("click", function () {
+    $(".clickBgShadow").removeClass("d-block");
+    $(".clickBgShadow").addClass("d-none");
+  });
 
   // Control links
   $("a[aria-disabled='true']").on("click", () => {

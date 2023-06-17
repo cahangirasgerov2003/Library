@@ -304,6 +304,17 @@ a:hover {
 }
 
 /*For special use*/
+/* header {
+  position: fixed;
+  z-index: 999;
+  background-color: #fff;
+  border-bottom: 1px solid #e9e1e5a6;
+  top: 0;
+} */
+.homeHeader {
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #b4aeb1a6;
+}
 .headerContainer {
   width: 90%;
   padding: 36px 92px 0 0;
@@ -486,10 +497,10 @@ a:hover {
 
 /* Click Background Shadow */
 .clickBgShadow {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 999;
+  z-index: 9999;
   display: none;
 }
 

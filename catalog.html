@@ -523,8 +523,11 @@
             <div class="row">
               <div class="col-md-7">
                 <div class="anonimMessageInput d-flex align-items-center">
-                  <input placeholder="your anonim comment..." />
-                  <button>
+                  <input
+                    class="yourMessage"
+                    placeholder="your anonim comment..."
+                  />
+                  <button class="submitAnonimMessage">
                     <img
                       src="./assets/image/icon/sendMessage.svg"
                       alt="submit"
@@ -532,18 +535,7 @@
                   </button>
                 </div>
 
-                <div class="anonimMessageContent">
-                  <div class="d-flex align-items-center mb-4 messageTitle">
-                    <h2 class="mb-0 mr-4">anonim</h2>
-                    <p class="mb-0">18:32 today</p>
-                  </div>
-                  <p class="mb-0">
-                    Woah, your project looks awesome! How long have you been
-                    coding for? I am still new, but think I want to dive into
-                    React as well soon. Perhaps you can give me an insight on
-                    where I can learn React? Thanks!
-                  </p>
-                </div>
+                <div class="anonimMessageContentContainer"></div>
               </div>
             </div>
           </div>

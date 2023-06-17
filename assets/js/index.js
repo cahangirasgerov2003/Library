@@ -1,6 +1,6 @@
 $(document).ready(() => {
   let catalogBooks = null;
-
+  let clickedBookId = null;
   getPathName();
   // Home page and Catalog options books
   function fillCatalogSection(node) {
@@ -199,38 +199,16 @@ $(document).ready(() => {
     });
   }
 
-  // Control Pathname
-  function getPathName() {
-    let pathName = window.location.pathname.split("/");
-    let lastPartPathName = pathName[pathName.length - 1];
-
-    $(`.navContainer a[href='./${lastPartPathName}']`).css({
-      color: "var(--inputColor)",
-      "text-decoration": "underline",
-    });
-
-    if (lastPartPathName === "index.html") {
-      fillCatalogSection("typesBook");
-    } else if (lastPartPathName === "catalog.html") {
-      fillCatalogSection("typesBook");
-      groupBooksByCatalog("book");
-    } else if (lastPartPathName === "store.html") {
-    } else if (lastPartPathName === "contact.html") {
-    } else if (lastPartPathName === "search.html") {
-    } else {
-      return;
-    }
-  }
-
   // Click Read More Button
   $(document).on("click", ".readMore", function () {
-    let clickedBookId = $(this).attr("id");
+    clickedBookId = $(this).attr("id");
     $(".bookLibrarySection").fadeOut(120);
     $(".typeOfBooksSection").fadeOut(120);
     $(".bookOptionsSection").fadeOut(120);
     $(".infoAndImageBook").fadeIn(120);
     $(".anonimMessage").fadeIn(120);
     renderClickedBookInfo(clickedBookId);
+    renderAnonimMessages("message");
   });
 
   function renderClickedBookInfo(id) {
@@ -241,10 +219,14 @@ $(document).ready(() => {
         }
       }
     );
-    console.log(clicedBookData);
+
     $(".infoBook h2").html(clicedBookData[1].bookNameValue);
     $(".infoBook h3").html(clicedBookData[1].authorNameValue);
-    $(".infoBook p:last-child").html(clicedBookData[1].descriptionValue);
+    $(".infoBook p:last-child").html(
+      clicedBookData[1].descriptionValue.length > 997
+        ? clicedBookData[1].descriptionValue.slice(0, 998) + "..."
+        : clicedBookData[1].descriptionValue
+    );
     $(".imageTargetBook img").attr("src", clicedBookData[1].bookImageUrl1Value);
   }
 
@@ -268,6 +250,107 @@ $(document).ready(() => {
     $(".clickBgShadow").removeClass("d-block");
     $(".clickBgShadow").addClass("d-none");
   });
+
+  // Anonim Message
+  $(".submitAnonimMessage").on("click", () => {
+    let yourMessage = $(".yourMessage").val();
+    if (yourMessage.length > 20 && yourMessage.length < 300) {
+      alert(
+        "Thank you for your message. We promise to keep your identity confidential :))"
+      );
+      writeDatabaseAnonimMessage(yourMessage, sendTime());
+    } else {
+      alert("Your message size must be between 20 and 300 :((");
+    }
+    $(".yourMessage").val("");
+  });
+
+  // Send Time
+  function sendTime() {
+    let date = new Date();
+    return date.getTime();
+  }
+
+  // Write Database Anonim Message
+  function writeDatabaseAnonimMessage(message, time) {
+    let messages = {
+      clickedBookId,
+      message,
+      time,
+    };
+    database.ref("message").push(messages);
+  }
+
+  // Render Anonim Message
+  function renderAnonimMessages(node) {
+    database.ref(node).on("value", function (snapshot) {
+      if (snapshot.exists()) {
+        let messages = Object.values(snapshot.val());
+
+        let arrayClicedBookInfo = messages.filter((item) => {
+          if (item.clickedBookId === clickedBookId) {
+            return item;
+          }
+        });
+
+        $(".anonimMessageContentContainer").html(
+          arrayClicedBookInfo.map((item) => {
+            return `
+          <div class="anonimMessageContent">
+          <div class="d-flex align-items-center mb-4 messageTitle">
+            <h2 class="mb-0 mr-4">anonim</h2>
+            <p class="mb-0">${adjustTime(item.time)}</p>
+          </div>
+          <p class="mb-0">
+            ${item.message}
+          </p>
+        </div>
+        `;
+          })
+        );
+      }
+    });
+  }
+
+  // Adjust the Time
+  function adjustTime(timestamp) {
+    let date2 = new Date();
+    let differentTimestamp = date2.getTime() - timestamp;
+    if (differentTimestamp / (365 * 24 * 3600) > 1) {
+      return `${Math.ceil(differentTimestamp / (365 * 24 * 3600))} ago`;
+    } else if (differentTimestamp / (30 * 24 * 3600) > 1) {
+      return `${Math.ceil(differentTimestamp / (30 * 24 * 3600))} months ago`;
+    } else if (differentTimestamp / (7 * 24 * 3600) > 1) {
+      return `${Math.ceil(differentTimestamp / (30 * 24 * 3600))} weeks ago`;
+    } else if (differentTimestamp / (24 * 3600) > 1) {
+      return `${Math.ceil(differentTimestamp / 3600)} day ago`;
+    } else {
+      return `today`;
+    }
+  }
+
+  // Control Pathname
+  function getPathName() {
+    let pathName = window.location.pathname.split("/");
+    let lastPartPathName = pathName[pathName.length - 1];
+
+    $(`.navContainer a[href='./${lastPartPathName}']`).css({
+      color: "var(--inputColor)",
+      "text-decoration": "underline",
+    });
+
+    if (lastPartPathName === "index.html") {
+      fillCatalogSection("typesBook");
+    } else if (lastPartPathName === "catalog.html") {
+      fillCatalogSection("typesBook");
+      groupBooksByCatalog("book");
+    } else if (lastPartPathName === "store.html") {
+    } else if (lastPartPathName === "contact.html") {
+    } else if (lastPartPathName === "search.html") {
+    } else {
+      return;
+    }
+  }
 
   // Control links
   $("a[aria-disabled='true']").on("click", () => {

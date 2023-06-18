@@ -118,6 +118,11 @@ a:hover {
 .join-error {
   width: 80%;
 }
+.join-error-contact,
+.join-success-contact {
+  width: 100%;
+  margin-bottom: 33px;
+}
 .adminPanelLogo {
   padding: 74px 37px 54px 35px;
 }

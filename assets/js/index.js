@@ -1,6 +1,10 @@
 $(document).ready(() => {
   let catalogBooks = null;
   let clickedBookId = null;
+  let full_name = $(".fullName").val().trim();
+  let email = $(".email").val().trim();
+  let adress = $(".adress").val().trim();
+  let phone = $(".phone").val().trim();
   getPathName();
   // Home page and Catalog options books
   function fillCatalogSection(node) {
@@ -167,7 +171,7 @@ $(document).ready(() => {
               <div class="card-body libraryCardsBody">
                 <h5 class="card-title">Error</h5>
                 <p class="card-text">Error</p>
-                <button>
+                <button class='errorReadMore'>
                   <p>READ MORE</p>
                 </button>
               </div>
@@ -177,6 +181,13 @@ $(document).ready(() => {
       }
     }
   }
+
+  // Click error book
+  $(document).on("click", ".errorReadMore", () => {
+    alert(
+      "Unfortunately, this type of book is not available in the library yet, it will be added soon. Stay tuned"
+    );
+  });
 
   // Click Lists Book
   $(document).on("click", ".listBooks li", function (e) {
@@ -293,6 +304,9 @@ $(document).ready(() => {
           }
         });
 
+        $(".infoBook p:first-of-type").html(
+          `${arrayClicedBookInfo.length} anonim message this book `
+        );
         $(".anonimMessageContentContainer").html(
           arrayClicedBookInfo.map((item) => {
             return `
@@ -329,6 +343,64 @@ $(document).ready(() => {
     }
   }
 
+  // Render About Store Information
+  function renderAboutStore(node) {
+    database.ref(node).on("value", function (snapshot) {
+      let infoStore = snapshot.val();
+      $(".aboutStoreMain").html(`
+      <div class="infoStore">
+      <h2>${infoStore.titleAboutStoreValue}</h2>
+      <p>
+        ${infoStore.storeDescriptionValue}
+      </p>
+    </div>
+    <div class="d-flex align-items-center">
+      <img
+        alt="Book depository"
+        src=${infoStore.storeImageValue}
+      />
+    </div>
+    `);
+    });
+  }
+
+  // Contact Us
+  $(".sendButton").on("click", function () {
+    console.log(full_name);
+    console.log(full_name.length > 8);
+    console.log(full_name.length < 21);
+    console.log(full_name[0] === full_name[0].toUpperCase());
+    console.log(adress.length > 2);
+    console.log(phone.toString().length < 13);
+    console.log(controlEmail(email));
+    if (
+      full_name.length > 8 &&
+      full_name.length < 21 &&
+      full_name[0] === full_name[0].toUpperCase() &&
+      controlEmail(email) &&
+      adress.length > 2 &&
+      phone.toString().length < 13
+    ) {
+      $(".join-error-contact").fadeOut(300);
+      $(".join-success-contact").fadeIn(300);
+    } else {
+      $(".join-success-contact").fadeOut(300);
+      $(".join-error-contact").fadeIn(300);
+    }
+
+    $(".fullName").val("");
+    $(".email").val("");
+    $(".adress").val("");
+    $(".phone").val("");
+  });
+
+  // Control Email Reqular Expression
+  function controlEmail(input) {
+    let emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    console.log(emailRegEx.test(input));
+    return emailRegEx.test(input);
+  }
+
   // Control Pathname
   function getPathName() {
     let pathName = window.location.pathname.split("/");
@@ -345,7 +417,7 @@ $(document).ready(() => {
       fillCatalogSection("typesBook");
       groupBooksByCatalog("book");
     } else if (lastPartPathName === "store.html") {
-    } else if (lastPartPathName === "contact.html") {
+      renderAboutStore("about");
     } else if (lastPartPathName === "search.html") {
     } else {
       return;

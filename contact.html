@@ -158,18 +158,42 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <input placeholder="Full Name" />
+                <input class="fullName" placeholder="Full Name" />
               </div>
               <div class="col-md-6">
-                <input placeholder="Email" />
+                <input class="email" placeholder="Email" type="email" />
               </div>
               <div class="col-md-6">
-                <input placeholder="Adress" />
+                <input class="adress" placeholder="Adress" />
               </div>
               <div class="col-md-6">
-                <input placeholder="Phone" />
+                <input class="phone" placeholder="Phone" type="number" />
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div
+                  class="alert alert-danger join-error-contact"
+                  role="alert"
+                  style="display: none"
+                >
+                  <h4>Error</h4>
+                  <p class="errorInformation">
+                    Enter a secure password that meets world standards!
+                  </p>
+                </div>
+                <div
+                  class="alert alert-success join-success-contact"
+                  role="alert"
+                  style="display: none"
+                >
+                  <h4>Successful</h4>
+                  <p>Welcome admin panel &#9996;</p>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-md-6">
                 <button class="sendButton w-100">
@@ -243,7 +267,11 @@
             <div class="mb-2 d-flex justify-content-center">
               <h2>+38 (071) 339-16-26</h2>
             </div>
-            <button>Request a call</button>
+            <button
+              onclick="alert(`This functionality is being worked on and will be available soon`)"
+            >
+              Request a call
+            </button>
           </div>
 
           <div class="w-100 d-flex justify-content-center termsOfUse">

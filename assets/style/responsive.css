@@ -24,6 +24,12 @@
     width: 90%;
   }
   .searchBookAndInfo {
+    /* flex-direction: column;
+    align-items: center; */
+    height: 760px !important;
+    padding: 47px 30px 134px 30px;
+  }
+  .defaultSearchInfo {
     flex-direction: column;
     align-items: center;
   }
@@ -35,6 +41,16 @@
   }
   .nextSearchResult {
     margin-right: 0;
+  }
+  .slickSearchContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .searchBookInfo h2,
+  .searchBookInfo h3,
+  .searchBookInfo p {
+    text-align: center;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -212,6 +228,7 @@
   }
   .searchResult {
     width: 100%;
+    overflow: hidden;
   }
   .searchBookAndInfo {
     padding: 40px 50px 40px 30px;
@@ -356,18 +373,17 @@
     box-shadow: none;
   }
 
-  .searchBookInfo p,
-  .searchBookInfo h2,
-  .searchBookInfo h3 {
-    text-align: center;
-  }
-
   .arrows {
     display: flex !important;
+    margin-top: 20px;
   }
   .mobileNextSearchResult:hover,
   .mobilePreviousSearchResult:hover {
     cursor: pointer;
+  }
+  .mobileNextSearchResult,
+  .mobilePreviousSearchResult {
+    display: flex !important;
   }
   .mobilePreviousSearchResult {
     margin-right: 100px;

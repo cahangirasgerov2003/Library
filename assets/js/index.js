@@ -547,14 +547,16 @@ $(document).ready(() => {
   $(".searchButton").on("click", function () {
     let searchInputValue = $(".searchInput2").val();
     $(".searchInput2").val("");
-    let searchResult = JSON.parse(localStorage.getItem("allBooks")).filter(
-      (item) => {
-        if (item[1].bookNameValue.includes(searchInputValue)) {
-          return item;
+    if (searchInputValue.length > 0) {
+      let searchResult = JSON.parse(localStorage.getItem("allBooks")).filter(
+        (item) => {
+          if (item[1].bookNameValue.includes(searchInputValue)) {
+            return item;
+          }
         }
-      }
-    );
-    renderSearchBooks(searchResult);
+      );
+      renderSearchBooks(searchResult);
+    }
   });
 
   // Render Search Books
@@ -562,23 +564,28 @@ $(document).ready(() => {
     if (result.length > 0) {
       $(".searchBookAndInfo").html(
         result.map((item) => {
-          return `
-          <div class="d-flex" style="width:184px !important">
-          <div class="searchBookImage">
-            <img
+          return ` <div>
+            <div class="d-flex slickSearchContainer">
+               <div class="searchBookImage">
+                 <img
                       src="${item[1].bookImageUrl1Value}"
                       alt="book"
-                      style="width: 134px; height: 190px; object-fit: cover;"
-            />
-          </div>
+                      style="width: 220px; height: 306px; object-fit: cover;"
+                 />
+               </div>
 
-          <div class="searchBookInfo">
-             <h2>${item[1].bookNameValue}</h2>
-             <h3>${item[1].authorNameValue}</h3>
-             <p>
-             ${item[1].descriptionValue}
-             </p>
-           </div>
+               <div class="searchBookInfo">
+                 <h2>${item[1].bookNameValue}</h2>
+                 <h3>${item[1].authorNameValue}</h3>
+                 <p>
+                 ${
+                   item[1].descriptionValue.length > 500
+                     ? item[1].descriptionValue.slice(0, 447) + "..."
+                     : item[1].descriptionValue
+                 }
+                 </p>
+               </div>
+             </div>
            </div>
           `;
         })
@@ -590,6 +597,7 @@ $(document).ready(() => {
       autoplay: true,
       slidesToShow: 1,
       speed: 700,
+      pauseOnHover: true,
       prevArrow: $(".previousSearchResult"),
       nextArrow: $(".nextSearchResult"),
     });

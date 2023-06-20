@@ -100,8 +100,14 @@ $(document).ready(() => {
   function playSlickShow(section, dataBook) {
     $(section).html(
       dataBook.map((item) => {
-        return `
-        <div>
+        if (item[1].bookTypeValue === "New") {
+          return `
+        <div class="position-relative">
+           
+        <div class="position-absolute newBookTitle" style="z-index: 999">
+          <h2>New</h2>
+        </div>
+
         <div class="card libraryCards" style="width:184px !important">
         <div class="d-flex justify-content-center">
                 <img
@@ -129,6 +135,37 @@ $(document).ready(() => {
         </div>
         </div>
         `;
+        } else {
+          return `
+          <div>
+          <div class="card libraryCards" style="width:184px !important">
+          <div class="d-flex justify-content-center">
+                  <img
+                    src=${item[1].bookImageUrl1Value}
+                    class="card-img-top"
+                    alt="book"
+                    style="width: 134px; height: 190px; object-fit: cover;"
+                  />
+          </div>
+                    <div class="card-body libraryCardsBody">
+                    <h5 class="card-title">${
+                      item[1].bookNameValue.length > 10
+                        ? item[1].bookNameValue.slice(0, 11) + "..."
+                        : item[1].bookNameValue
+                    }</h5>
+                    <p class="card-text">${
+                      item[1].authorNameValue.length > 10
+                        ? item[1].authorNameValue.slice(0, 11) + "..."
+                        : item[1].authorNameValue
+                    }</p>
+                    <button class="readMore" id=${item[0]}>
+                      <p>READ MORE</p>
+                    </button>
+                  </div>
+          </div>
+          </div>
+          `;
+        }
       })
     );
     if (dataBook.length > 5) {
@@ -234,6 +271,13 @@ $(document).ready(() => {
         ? clicedBookData[1].descriptionValue.slice(0, 998) + "..."
         : clicedBookData[1].descriptionValue
     );
+    if (clicedBookData[1].newBookValue === true) {
+      $(".newBookTitle").removeClass("d-none");
+      $(".newBookTitle").addClass("d-block");
+    } else {
+      $(".newBookTitle").removeClass("d-block");
+      $(".newBookTitle").addClass("d-none");
+    }
     $(".imageTargetBook img").attr("src", clicedBookData[1].bookImageUrl1Value);
   }
 
@@ -366,7 +410,6 @@ $(document).ready(() => {
     let email = $(".email").val();
     let adress = $(".adress").val();
     let phone_number = $(".phone").val();
-    console.log(phone_number);
     if (
       fullName.length > 8 &&
       fullName.length < 21 &&
@@ -499,6 +542,8 @@ $(document).ready(() => {
       return;
     }
   }
+
+  // Search Books in All My Library Books
 
   // Control links
   $("a[aria-disabled='true']").on("click", () => {

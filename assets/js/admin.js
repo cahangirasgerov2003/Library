@@ -186,7 +186,6 @@ $(document).ready(() => {
         </div>
     `);
     setTimeout(() => {
-      console.log(tipsArray);
       $(".searchTips").html(
         tipsArray
           .map((item) => {
@@ -389,7 +388,7 @@ $(document).ready(() => {
   // Add Book Types
   $(".addTypeButton").on("click", () => {
     let addTypeValue = $(".addType").val().trim();
-    if (addTypeValue.length < 4) {
+    if (addTypeValue.length < 3) {
       $(".addTypeError").html("Book type error!");
       $(".dropdownButton").removeClass("btn-success");
       $(".dropdownButton").addClass("btn-danger");
@@ -437,7 +436,6 @@ $(document).ready(() => {
 
   // Click Book Name Tips
   $(document).on("click", ".bookNameTips", function (e) {
-    console.log(globalTipsArray);
     let idTargetBook = e.target.getAttribute("data-id");
     let dataForForm = globalTipsArray.find((item) => {
       if (idTargetBook === item.id) {
@@ -449,7 +447,6 @@ $(document).ready(() => {
 
   // Fill Out The Form
   function fillOutForm(fillData) {
-    console.log(fillData);
     bookName.val(fillData?.volumeInfo?.title ?? "");
     authorName.val(fillData?.volumeInfo?.authors.join(" ") ?? "");
     bookImageUrl1.val(fillData?.volumeInfo?.imageLinks?.thumbnail ?? "");

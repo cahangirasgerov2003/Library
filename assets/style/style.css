@@ -562,6 +562,19 @@ a:hover {
   }
 }
 
+.newBookTitle {
+  background-color: #eb5757;
+  border: 1px solid #dd5151;
+  box-shadow: 0px 3px 8px rgba(225, 106, 0, 0.19);
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+.newBookTitle h2 {
+  font: 900 15px var(--montSerrat);
+  color: #fff;
+  margin-bottom: 0;
+}
+
 .followUsCatalogPage {
   margin-bottom: 104px;
 }

@@ -849,6 +849,9 @@ a:hover {
 }
 .searchBookAndInfo {
   margin: 0 30px;
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  padding: 47px 56px 134px 31px;
 }
 .nextSearchResult {
   margin-right: 12px;
@@ -856,11 +859,6 @@ a:hover {
 .previousSearchResult:hover,
 .nextSearchResult:hover {
   cursor: pointer;
-}
-.searchBookAndInfo {
-  background: #ffffff;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
-  padding: 47px 56px 134px 31px;
 }
 .searchBookAndInfo div img {
   margin-right: 30px;

@@ -544,6 +544,56 @@ $(document).ready(() => {
   }
 
   // Search Books in All My Library Books
+  $(".searchButton").on("click", function () {
+    let searchInputValue = $(".searchInput2").val();
+    $(".searchInput2").val("");
+    let searchResult = JSON.parse(localStorage.getItem("allBooks")).filter(
+      (item) => {
+        if (item[1].bookNameValue.includes(searchInputValue)) {
+          return item;
+        }
+      }
+    );
+    renderSearchBooks(searchResult);
+  });
+
+  // Render Search Books
+  function renderSearchBooks(result) {
+    if (result.length > 0) {
+      $(".searchBookAndInfo").html(
+        result.map((item) => {
+          return `
+          <div class="d-flex" style="width:184px !important">
+          <div class="searchBookImage">
+            <img
+                      src="${item[1].bookImageUrl1Value}"
+                      alt="book"
+                      style="width: 134px; height: 190px; object-fit: cover;"
+            />
+          </div>
+
+          <div class="searchBookInfo">
+             <h2>${item[1].bookNameValue}</h2>
+             <h3>${item[1].authorNameValue}</h3>
+             <p>
+             ${item[1].descriptionValue}
+             </p>
+           </div>
+           </div>
+          `;
+        })
+      );
+    }
+
+    $(".searchBookAndInfo").slick({
+      infinite: true,
+      autoplay: true,
+      slidesToShow: 1,
+      speed: 700,
+      prevArrow: $(".previousSearchResult"),
+      nextArrow: $(".nextSearchResult"),
+    });
+  }
 
   // Control links
   $("a[aria-disabled='true']").on("click", () => {

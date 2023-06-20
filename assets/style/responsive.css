@@ -341,8 +341,7 @@
   }
 
   /* Search Page */
-  .searchInputAndButton,
-  .searchResult {
+  .searchInputAndButton {
     width: 100%;
   }
 

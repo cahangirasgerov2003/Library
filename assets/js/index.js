@@ -436,7 +436,46 @@ $(document).ready(() => {
       $(".openCloseMenu").removeClass("d-none");
       $(".openCloseMenu").addClass("d-flex");
     });
+    $(".join-error").fadeOut();
+    $(".join-success").fadeOut();
   });
+
+  // Control Input Data Join Us
+  $(".signIn").on("click", function (e) {
+    e.preventDefault();
+    let fullName = $(".modalUsername").val();
+    let email = $(".modalEmail").val();
+    if (
+      fullName.length > 8 &&
+      fullName.length < 21 &&
+      fullName[0] === fullName[0].toUpperCase() &&
+      controlEmail(email)
+    ) {
+      $(".join-error").fadeOut(() => {
+        $(".join-success").fadeIn(1000);
+        let joinUsInfo = {
+          fullName,
+          email,
+        };
+        renderDatabaseJoinInfo(joinUsInfo);
+      });
+    } else {
+      $(".join-success").fadeOut(() => {
+        $(".join-error").fadeIn(1000);
+      });
+    }
+
+    $(".modalUsername").val("");
+    $(".modalEmail").val("");
+  });
+
+  // Render Join Info in Database
+  function renderDatabaseJoinInfo(peopleInfo) {
+    database.ref("joinPeople").push().set(peopleInfo);
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  }
 
   // Control Pathname
   function getPathName() {

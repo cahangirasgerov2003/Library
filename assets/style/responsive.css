@@ -178,7 +178,7 @@
 
   /* Join Us Home Page */
   .homePageContainer {
-    width: 80%;
+    width: 70%;
   }
 
   /* Catalog Page */
@@ -372,5 +372,10 @@
   }
   .mobilePreviousSearchResult {
     margin-right: 100px;
+  }
+
+  /* Join Us Home Page */
+  .homePageContainer {
+    width: 90%;
   }
 }

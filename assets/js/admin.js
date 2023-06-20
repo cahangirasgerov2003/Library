@@ -502,7 +502,7 @@ $(document).ready(() => {
                     <td>${item.adress}</td>
                     <td>${item.email}</td>
                     <td>${item.phone_number}</td>
-              </tr>
+              </tr> 
           `;
             })
             .join("")

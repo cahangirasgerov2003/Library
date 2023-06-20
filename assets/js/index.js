@@ -1,10 +1,6 @@
 $(document).ready(() => {
   let catalogBooks = null;
   let clickedBookId = null;
-  let full_name = $(".fullName").val().trim();
-  let email = $(".email").val().trim();
-  let adress = $(".adress").val().trim();
-  let phone = $(".phone").val().trim();
   getPathName();
   // Home page and Catalog options books
   function fillCatalogSection(node) {
@@ -252,12 +248,12 @@ $(document).ready(() => {
   });
 
   // Open Close Button
-  $("#openCloseHomeImg").on("click", function () {
+  $("#openCloseHomeImg img").on("click", function () {
     $(".clickBgShadow").addClass("d-block");
   });
 
   // Close Button
-  $(".closeButtonHomePage").on("click", function () {
+  $(".closeButtonHomePage img").on("click", function () {
     $(".clickBgShadow").removeClass("d-block");
     $(".clickBgShadow").addClass("d-none");
   });
@@ -365,27 +361,35 @@ $(document).ready(() => {
   }
 
   // Contact Us
-  $(".sendButton").on("click", function () {
-    console.log(full_name);
-    console.log(full_name.length > 8);
-    console.log(full_name.length < 21);
-    console.log(full_name[0] === full_name[0].toUpperCase());
-    console.log(adress.length > 2);
-    console.log(phone.toString().length < 13);
-    console.log(controlEmail(email));
+  $(".sendButton").on("click", function (e) {
+    let fullName = $(".fullName").val();
+    let email = $(".email").val();
+    let adress = $(".adress").val();
+    let phone_number = $(".phone").val();
+    console.log(phone_number);
     if (
-      full_name.length > 8 &&
-      full_name.length < 21 &&
-      full_name[0] === full_name[0].toUpperCase() &&
+      fullName.length > 8 &&
+      fullName.length < 21 &&
+      fullName[0] === fullName[0].toUpperCase() &&
       controlEmail(email) &&
       adress.length > 2 &&
-      phone.toString().length < 13
+      phone_number.toString().length < 13 &&
+      phone_number.toString().length > 9
     ) {
-      $(".join-error-contact").fadeOut(300);
-      $(".join-success-contact").fadeIn(300);
+      $(".join-error-contact").fadeOut(() => {
+        $(".join-success-contact").fadeIn(1000);
+        let contactInfo = {
+          fullName,
+          email,
+          adress,
+          phone_number,
+        };
+        renderDatabaseContactInfo(contactInfo);
+      });
     } else {
-      $(".join-success-contact").fadeOut(300);
-      $(".join-error-contact").fadeIn(300);
+      $(".join-success-contact").fadeOut(() => {
+        $(".join-error-contact").fadeIn(1000);
+      });
     }
 
     $(".fullName").val("");
@@ -394,12 +398,45 @@ $(document).ready(() => {
     $(".phone").val("");
   });
 
+  // Render Contact Info in Database
+  function renderDatabaseContactInfo(peopleInfo) {
+    database.ref("contactPeople").push().set(peopleInfo);
+  }
+
   // Control Email Reqular Expression
   function controlEmail(input) {
     let emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    console.log(emailRegEx.test(input));
     return emailRegEx.test(input);
   }
+
+  // Join US
+  $(".clickJoinUs").on("click", () => {
+    $(".clickBgShadow").removeClass("d-none");
+    $(".clickBgShadow").addClass("d-block");
+    $(".openCloseMenu").removeClass("d-flex");
+    $(".openCloseMenu").addClass("d-none");
+    $(".homePageContainer").fadeIn(300);
+  });
+
+  $(".adminAvatar").on("click", () => {
+    if (window.innerWidth <= 992) {
+      $(".clickBgShadow").removeClass("d-none");
+      $(".clickBgShadow").addClass("d-block");
+      $(".openCloseMenu").removeClass("d-flex");
+      $(".openCloseMenu").addClass("d-none");
+      $(".homePageContainer").fadeIn(300);
+    }
+  });
+
+  // Close modal join us
+  $(".closeButtonJoinUs i").on("click", () => {
+    $(".homePageContainer").fadeOut(300, () => {
+      $(".clickBgShadow").removeClass("d-block");
+      $(".clickBgShadow").addClass("d-none");
+      $(".openCloseMenu").removeClass("d-none");
+      $(".openCloseMenu").addClass("d-flex");
+    });
+  });
 
   // Control Pathname
   function getPathName() {

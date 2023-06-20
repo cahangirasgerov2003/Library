@@ -37,9 +37,14 @@
         <!-- Join Us Home Page -->
         <div class="flex-center">
           <div class="homePageContainer bg-white">
+            <div class="closeButtonJoinUs d-flex justify-content-end">
+              <i class="fa-sharp fa-solid fa-xmark fa-beat"></i>
+            </div>
+
             <div class="welcomeAdmin flex-center fontMontSerrat">
               <h5 class="modal-title textWelcome text-center">Join Us</h5>
             </div>
+
             <div class="inputContainer">
               <div class="w-100 flex-center">
                 <input
@@ -55,9 +60,6 @@
                   placeholder="Email"
                 />
               </div>
-            </div>
-            <div class="signIn">
-              <button type="button" class="text-white">Join</button>
             </div>
 
             <div
@@ -77,6 +79,10 @@
             >
               <h4>Successful</h4>
               <p>Welcome admin panel &#9996;</p>
+            </div>
+
+            <div class="signIn">
+              <button type="button" class="text-white">Join</button>
             </div>
           </div>
         </div>
@@ -132,7 +138,7 @@
               alt="Admin logo"
               height="21"
             />
-            <a href="#">
+            <a href="#" class="clickJoinUs">
               <h2 class="mb-0">Join us</h2>
             </a>
             <!-- Mobile Home Page openClose logo -->
@@ -158,13 +164,13 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <input class="fullName" placeholder="Full Name" />
+                <input class="fullName" placeholder="Full Name" type="text" />
               </div>
               <div class="col-md-6">
                 <input class="email" placeholder="Email" type="email" />
               </div>
               <div class="col-md-6">
-                <input class="adress" placeholder="Adress" />
+                <input class="adress" placeholder="Adress" type="text" />
               </div>
               <div class="col-md-6">
                 <input class="phone" placeholder="Phone" type="number" />
@@ -189,7 +195,9 @@
                   style="display: none"
                 >
                   <h4>Successful</h4>
-                  <p>Welcome admin panel &#9996;</p>
+                  <p>
+                    Your contact information has been successfully saved &#9996;
+                  </p>
                 </div>
               </div>
             </div>

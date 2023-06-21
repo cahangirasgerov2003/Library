@@ -1,6 +1,8 @@
 $(document).ready(() => {
   let catalogBooks = null;
   let clickedBookId = null;
+  let path = window.location.pathname;
+  let truepath = path.slice(0, path.length - 10);
   getPathName();
   // Home page and Catalog options books
   function fillCatalogSection(node) {
@@ -27,7 +29,7 @@ $(document).ready(() => {
         "click",
         ".availableCatalogs div.row div div",
         function () {
-          window.location.pathname = "catalog.html";
+          window.location.pathname = truepath + "catalog.html";
         }
       );
 
@@ -67,12 +69,8 @@ $(document).ready(() => {
   }
 
   // Click Go to Catalog Button
-  // let path = window.location.pathname.split("/");
-  // console.log(path[path.length - 1]);
-
   $(".mainGoCatalog button").on("click", function () {
-    console.log(window.location);
-    window.location.pathname = "catalog.html";
+    window.location.pathname = truepath + "catalog.html";
   });
 
   //  Groups books by catalog
@@ -84,7 +82,7 @@ $(document).ready(() => {
       );
 
       playSlickShow(
-        ".bookLibraryContainerAllBooks",
+        "#bookLibraryContainerAllBooks",
         JSON.parse(localStorage.getItem("allBooks"))
       );
       for (let i = 0; i < catalogBooks.length; i++) {
@@ -441,8 +439,7 @@ $(document).ready(() => {
       fullName[0] === fullName[0].toUpperCase() &&
       controlEmail(email) &&
       adress.length > 2 &&
-      phone_number.toString().length < 13 &&
-      phone_number.toString().length > 9
+      phone_number.length === 10
     ) {
       $(".join-error-contact").fadeOut(() => {
         $(".join-success-contact").fadeIn(1000);
@@ -474,6 +471,7 @@ $(document).ready(() => {
   // Control Email Reqular Expression
   function controlEmail(input) {
     let emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    console.log(emailRegEx.test(input));
     return emailRegEx.test(input);
   }
 
@@ -562,7 +560,6 @@ $(document).ready(() => {
       groupBooksByCatalog("book");
     } else if (lastPartPathName === "store.html") {
       renderAboutStore("about");
-    } else if (lastPartPathName === "search.html") {
     } else {
       return;
     }
@@ -584,8 +581,13 @@ $(document).ready(() => {
     }
   });
 
+  let clickedSearch = 0;
   // Render Search Books
   function renderSearchBooks(result) {
+    if (clickedSearch > 0) {
+      $(".searchBookAndInfo").slick("unslick");
+      $(".searchBookAndInfo").slick("removeSlide", null, null, true);
+    }
     if (result.length > 0) {
       $(".searchBookAndInfo").html(
         result.map((item) => {
@@ -624,6 +626,7 @@ $(document).ready(() => {
         prevArrow: $(".previousSearchResult"),
         nextArrow: $(".nextSearchResult"),
       });
+      clickedSearch++;
     }
   }
 

@@ -67,7 +67,11 @@ $(document).ready(() => {
   }
 
   // Click Go to Catalog Button
+  // let path = window.location.pathname.split("/");
+  // console.log(path[path.length - 1]);
+
   $(".mainGoCatalog button").on("click", function () {
+    console.log(window.location);
     window.location.pathname = "catalog.html";
   });
 

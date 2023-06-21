@@ -176,6 +176,27 @@ $(document).ready(() => {
         speed: 700,
         prevArrow: $(".previousArrow"),
         nextArrow: $(".nextArrow"),
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 3,
+              infinite: true,
+            },
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+        ],
       });
       $(section).next().removeClass("d-none");
       $(section).prev().removeClass("d-none");
@@ -590,17 +611,16 @@ $(document).ready(() => {
           `;
         })
       );
+      $(".searchBookAndInfo").slick({
+        infinite: true,
+        autoplay: true,
+        slidesToShow: 1,
+        speed: 700,
+        pauseOnHover: true,
+        prevArrow: $(".previousSearchResult"),
+        nextArrow: $(".nextSearchResult"),
+      });
     }
-
-    $(".searchBookAndInfo").slick({
-      infinite: true,
-      autoplay: true,
-      slidesToShow: 1,
-      speed: 700,
-      pauseOnHover: true,
-      prevArrow: $(".previousSearchResult"),
-      nextArrow: $(".nextSearchResult"),
-    });
   }
 
   // Control links

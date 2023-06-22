@@ -235,6 +235,10 @@ $(document).ready(() => {
         prevArrow: $(".previousArrow"),
         nextArrow: $(".nextArrow"),
       });
+      // $(section).next().removeClass("d-none");
+      // $(section).prev().removeClass("d-none");
+      // $(section).next().addClass("d-flex");
+      // $(section).prev().addClass("d-flex");
       $(section).removeClass("justify-content-between");
       $(section).addClass("justify-content-center");
       $(".libraryCards").addClass("m-auto");

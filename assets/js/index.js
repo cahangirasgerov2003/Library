@@ -170,6 +170,7 @@ $(document).ready(() => {
         }
       })
     );
+
     if (dataBook.length > 5) {
       $(section).slick({
         infinite: true,
@@ -236,6 +237,12 @@ $(document).ready(() => {
           `);
       }
     }
+    $("#previousArrowAllbooks").on("click", function () {
+      $("#bookLibraryContainerAllBooks").slick("slickPrev");
+    });
+    $("#nextArrowAllbooks").on("click", function () {
+      $("#bookLibraryContainerAllBooks").slick("slickNext");
+    });
   }
 
   // Click error book

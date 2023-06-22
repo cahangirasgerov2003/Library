@@ -198,6 +198,18 @@
   }
 
   /* Catalog Page */
+  .bookOptionsSection {
+    margin: 130px 0 50px 0;
+  }
+  .bookOptionsContainer {
+    width: 100%;
+    padding: 0 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .allBook {
+    margin: 0 0 20px 0;
+  }
 
   /* About Store */
   .aboutStoreMain {
@@ -350,6 +362,10 @@
   .anonimMessageInput button {
     width: 80%;
     animation: adminAddButtonAnime 1s linear 0s infinite alternate;
+  }
+
+  .listStyleBooks {
+    width: 280px;
   }
 
   /* Aboout Store */

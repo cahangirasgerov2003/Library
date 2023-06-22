@@ -3,6 +3,7 @@ $(document).ready(() => {
   let clickedBookId = null;
   let path = window.location.pathname;
   let truepath = path.slice(0, path.length - 10);
+  let widthPage = window.innerWidth;
   getPathName();
   // Home page and Catalog options books
   function fillCatalogSection(node) {
@@ -171,50 +172,38 @@ $(document).ready(() => {
       })
     );
 
-    if (dataBook.length > 5) {
-      $(section).slick({
-        infinite: true,
-        autoplay: true,
-        slidesToShow: 5,
-        speed: 700,
-        prevArrow: $(".previousArrow"),
-        nextArrow: $(".nextArrow"),
-        responsive: [
-          {
-            breakpoint: 1200,
-            settings: {
-              slidesToShow: 3,
-              infinite: true,
+    if (widthPage >= 992) {
+      if (dataBook.length > 5) {
+        $(section).slick({
+          infinite: true,
+          autoplay: true,
+          slidesToShow: 5,
+          speed: 700,
+          prevArrow: $(".previousArrow"),
+          nextArrow: $(".nextArrow"),
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 4,
+              },
             },
-          },
-          {
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 2,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-            },
-          },
-        ],
-      });
-      $(section).next().removeClass("d-none");
-      $(section).prev().removeClass("d-none");
-      $(section).next().addClass("d-flex");
-      $(section).prev().addClass("d-flex");
-    } else if (dataBook.length <= 5) {
-      $(section).next().addClass("d-none");
-      $(section).prev().addClass("d-none");
-      $(section).removeClass("justify-content-between");
-      $(section).addClass("justify-content-center");
-      $(section).children("div").css({
-        margin: "0 29px",
-      });
-      if (dataBook.length == 0) {
-        $(section).html(`
+          ],
+        });
+        $(section).next().removeClass("d-none");
+        $(section).prev().removeClass("d-none");
+        $(section).next().addClass("d-flex");
+        $(section).prev().addClass("d-flex");
+      } else if (dataBook.length <= 5) {
+        $(section).next().addClass("d-none");
+        $(section).prev().addClass("d-none");
+        $(section).removeClass("justify-content-between");
+        $(section).addClass("justify-content-center");
+        $(section).children("div").css({
+          margin: "0 29px",
+        });
+        if (dataBook.length == 0) {
+          $(section).html(`
           <div>
             <div class="card libraryCards">
               <div class="d-flex justify-content-center">
@@ -235,8 +224,46 @@ $(document).ready(() => {
             </div>
           </div>
           `);
+        }
+      }
+    } else {
+      $(section).slick({
+        infinite: true,
+        autoplay: true,
+        slidesToShow: 1,
+        speed: 700,
+        prevArrow: $(".previousArrow"),
+        nextArrow: $(".nextArrow"),
+      });
+      $(section).removeClass("justify-content-between");
+      $(section).addClass("justify-content-center");
+      $(".libraryCards").addClass("m-auto");
+
+      if (dataBook.length == 0) {
+        $(section).html(`
+        <div>
+          <div class="card libraryCards">
+            <div class="d-flex justify-content-center">
+              <img
+                src="./assets/image/Error.png"
+                class="card-img-top"
+                alt="book"
+                style="width: 190px; height: 190px; object-fit: cover;"
+              />
+            </div>
+            <div class="card-body libraryCardsBody">
+              <h5 class="card-title">Error</h5>
+              <p class="card-text">Error</p>
+              <button class='errorReadMore'>
+                <p>READ MORE</p>
+              </button>
+            </div>
+          </div>
+        </div>
+        `);
       }
     }
+
     $("#previousArrowAllbooks").on("click", function () {
       $("#bookLibraryContainerAllBooks").slick("slickPrev");
     });

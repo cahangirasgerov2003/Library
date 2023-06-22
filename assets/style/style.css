@@ -628,9 +628,11 @@ a:hover {
 }
 .previousArrow {
   margin-right: 30px;
+  margin-left: 10px;
 }
 .nextArrow {
   margin-left: 30px;
+  margin-right: 10px;
 }
 .libraryCards {
   padding: 24px 25px 17px 25px;

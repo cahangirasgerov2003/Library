@@ -2,7 +2,12 @@ $(document).ready(() => {
   let catalogBooks = null;
   let clickedBookId = null;
   let path = window.location.pathname;
-  let truepath = path.slice(0, path.length - 10);
+  let truepath = null;
+  if (path.includes("index.html")) {
+    truepath = path.slice(0, path.length - 10);
+  } else {
+    truepath = path;
+  }
   let widthPage = window.innerWidth;
   getPathName();
   // Home page and Catalog options books

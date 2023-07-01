@@ -517,31 +517,26 @@ $(document).ready(() => {
         infoContactPeopleHalf.html(
           contactPeopleArrayHalf
             .map((item, index) => {
-              if (index < 2) {
-                return `
+              return `
               <tr>
                     <th scope="row">${index + 1}</th>
                     <td>${item.fullName}</td>
                     <td>${item.adress}</td>
               </tr>
           `;
-              }
             })
             .join("")
         );
-
         infoContactPeopleOtherHalf.html(
           contactPeopleArrayHalf
             .map((item, index) => {
-              if (index >= 2 && index < 4) {
-                return `
+              return `
               <tr>
                     <th scope="row">${index + 1}</th>
                     <td>${item.email}</td>
                     <td>${item.phone_number}</td>
               </tr>
           `;
-              }
             })
             .join("")
         );

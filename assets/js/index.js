@@ -434,16 +434,25 @@ $(document).ready(() => {
 
   // Adjust the Time
   function adjustTime(timestamp) {
+    console.log(timestamp);
     let date2 = new Date();
+    console.log(date2.getTime());
     let differentTimestamp = date2.getTime() - timestamp;
-    if (differentTimestamp / (365 * 24 * 3600) > 1) {
-      return `${Math.ceil(differentTimestamp / (365 * 24 * 3600))} ago`;
-    } else if (differentTimestamp / (30 * 24 * 3600) > 1) {
-      return `${Math.ceil(differentTimestamp / (30 * 24 * 3600))} months ago`;
-    } else if (differentTimestamp / (7 * 24 * 3600) > 1) {
-      return `${Math.ceil(differentTimestamp / (30 * 24 * 3600))} weeks ago`;
-    } else if (differentTimestamp / (24 * 3600) > 1) {
-      return `${Math.ceil(differentTimestamp / 3600)} day ago`;
+    console.log(differentTimestamp);
+    if (differentTimestamp / (365 * 24 * 3600 * 1000) > 1) {
+      return `${Math.ceil(
+        differentTimestamp / (365 * 24 * 3600 * 1000)
+      )} year ago`;
+    } else if (differentTimestamp / (30 * 24 * 3600 * 1000) > 1) {
+      return `${Math.ceil(
+        differentTimestamp / (30 * 24 * 3600 * 1000)
+      )} months ago`;
+    } else if (differentTimestamp / (7 * 24 * 3600 * 1000) > 1) {
+      return `${Math.ceil(
+        differentTimestamp / (7 * 24 * 3600 * 1000)
+      )} weeks ago`;
+    } else if (differentTimestamp / (24 * 3600 * 1000) > 1) {
+      return `${Math.ceil(differentTimestamp / (24 * 3600 * 1000))} day ago`;
     } else {
       return `today`;
     }
@@ -596,7 +605,7 @@ $(document).ready(() => {
       "text-decoration": "underline",
     });
 
-    if (lastPartPathName === "index.html") {
+    if (lastPartPathName === "index.html" || lastPartPathName === "") {
       fillCatalogSection("typesBook");
     } else if (lastPartPathName === "catalog.html") {
       fillCatalogSection("typesBook");
